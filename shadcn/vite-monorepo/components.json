@@ -1,0 +1,24 @@
+{
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "styles/global.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": "tw-"
+  },
+  "rsc": true,
+  "tsx": true,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "aliases": {
+    "components": "#components",
+    "ui": "#components/ui",
+    "lib": "#lib",
+    "hooks": "#hooks",
+    "utils": "#lib/utils"
+  }
+}

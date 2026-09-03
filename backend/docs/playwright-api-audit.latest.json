@@ -1,0 +1,798 @@
+{
+  "generatedAt": "2026-05-21T08:30:28.774Z",
+  "runTag": "202605210830265585",
+  "baseURL": "http://localhost:3000/api/v1/",
+  "summary": {
+    "total": 50,
+    "passed": 49,
+    "failed": 1,
+    "skipped": 0
+  },
+  "fixtures": {
+    "runTag": "202605210830265585",
+    "users": {
+      "president": {
+        "id": "cmpf8dh9c0000pgv8iu4pbn4d",
+        "email": "api.audit.202605210830265585.president@chmsu.edu.ph",
+        "name": "API Audit president 202605210830265585",
+        "role": "PRESIDENTS",
+        "officeId": "cmpf8dheu0007pgv8ni9saq7w",
+        "status": "ACTIVE"
+      },
+      "vicePresident": {
+        "id": "cmpf8dhdb0001pgv8391fh117",
+        "email": "api.audit.202605210830265585.vice-president@chmsu.edu.ph",
+        "name": "API Audit vice-president 202605210830265585",
+        "role": "VICE_PRESIDENTS",
+        "officeId": "cmpf8dhf30008pgv8mtkyd1uo",
+        "status": "ACTIVE"
+      },
+      "director": {
+        "id": "cmpf8dhdj0002pgv8dfi1chl6",
+        "email": "api.audit.202605210830265585.director@chmsu.edu.ph",
+        "name": "API Audit director 202605210830265585",
+        "role": "DIRECTORS",
+        "officeId": "cmpf8dhf70009pgv8xne2sw1m",
+        "status": "ACTIVE"
+      },
+      "officeHead": {
+        "id": "cmpf8dhdp0003pgv8dpqnjo8t",
+        "email": "api.audit.202605210830265585.office-head@chmsu.edu.ph",
+        "name": "API Audit office-head 202605210830265585",
+        "role": "OFFICE_HEAD",
+        "officeId": "cmpf8dhf9000apgv81bj9cbpo",
+        "status": "ACTIVE"
+      },
+      "unassigned": {
+        "id": "cmpf8dhdx0004pgv8kull2mnj",
+        "email": "api.audit.202605210830265585.unassigned@chmsu.edu.ph",
+        "name": "API Audit unassigned 202605210830265585",
+        "role": "OFFICE_HEAD",
+        "officeId": null,
+        "status": "ACTIVE"
+      },
+      "assignable": {
+        "id": "cmpf8dhe00005pgv8x8oj81co",
+        "email": "api.audit.202605210830265585.assignable@chmsu.edu.ph",
+        "name": "API Audit assignable 202605210830265585",
+        "role": "OFFICE_HEAD",
+        "officeId": null,
+        "status": "ACTIVE"
+      },
+      "newOfficeHead": {
+        "id": "cmpf8dher0006pgv8o4i4lfn2",
+        "email": "api.audit.202605210830265585.new-office-head@chmsu.edu.ph",
+        "name": "API Audit new-office-head 202605210830265585",
+        "role": "OFFICE_HEAD",
+        "officeId": null,
+        "status": "ACTIVE"
+      }
+    },
+    "offices": {
+      "president": {
+        "id": "cmpf8dheu0007pgv8ni9saq7w",
+        "name": "API AUDIT PRESIDENT 202605210830265585",
+        "parentId": null,
+        "headId": "cmpf8dh9c0000pgv8iu4pbn4d",
+        "status": "ACTIVE"
+      },
+      "vicePresident": {
+        "id": "cmpf8dhf30008pgv8mtkyd1uo",
+        "name": "API AUDIT VP 202605210830265585",
+        "parentId": "cmpf8dheu0007pgv8ni9saq7w",
+        "headId": "cmpf8dhdb0001pgv8391fh117",
+        "status": "ACTIVE"
+      },
+      "director": {
+        "id": "cmpf8dhf70009pgv8xne2sw1m",
+        "name": "API AUDIT DIRECTOR 202605210830265585",
+        "parentId": "cmpf8dhf30008pgv8mtkyd1uo",
+        "headId": "cmpf8dhdj0002pgv8dfi1chl6",
+        "status": "ACTIVE"
+      },
+      "officeHead": {
+        "id": "cmpf8dhf9000apgv81bj9cbpo",
+        "name": "API AUDIT OFFICE HEAD 202605210830265585",
+        "parentId": "cmpf8dhf70009pgv8xne2sw1m",
+        "headId": "cmpf8dhdp0003pgv8dpqnjo8t",
+        "status": "ACTIVE"
+      }
+    }
+  },
+  "createdRecords": {
+    "offices": [
+      "cmpf8di560000y8v8lkdk6pa6"
+    ],
+    "plans": [
+      "cmpf8di7g0001y8v8edk1hr5e",
+      "cmpf8dibj0002y8v8mp1gclvz"
+    ],
+    "goals": [
+      "cmpf8dic10003y8v8ugr77wmj",
+      "cmpf8dicv0004y8v8cnryzati"
+    ],
+    "objectives": [
+      "cmpf8dign0005y8v8ys9d8tz8",
+      "cmpf8dih10006y8v8xj3uhdgd"
+    ]
+  },
+  "snapshot": {
+    "users": [
+      {
+        "id": "cmpf8dhe00005pgv8x8oj81co",
+        "email": "api.audit.202605210830265585.assignable@chmsu.edu.ph",
+        "name": "API Audit assignable 202605210830265585",
+        "role": "DIRECTORS",
+        "status": "INACTIVE",
+        "officeId": "cmpf8dhf9000apgv81bj9cbpo"
+      },
+      {
+        "id": "cmpf8dhdj0002pgv8dfi1chl6",
+        "email": "api.audit.202605210830265585.director@chmsu.edu.ph",
+        "name": "API Audit director 202605210830265585",
+        "role": "DIRECTORS",
+        "status": "ACTIVE",
+        "officeId": "cmpf8dhf70009pgv8xne2sw1m"
+      },
+      {
+        "id": "cmpf8dher0006pgv8o4i4lfn2",
+        "email": "api.audit.202605210830265585.new-office-head@chmsu.edu.ph",
+        "name": "API Audit new-office-head 202605210830265585",
+        "role": "OFFICE_HEAD",
+        "status": "ACTIVE",
+        "officeId": null
+      },
+      {
+        "id": "cmpf8dhdp0003pgv8dpqnjo8t",
+        "email": "api.audit.202605210830265585.office-head@chmsu.edu.ph",
+        "name": "API Audit office-head 202605210830265585",
+        "role": "OFFICE_HEAD",
+        "status": "ACTIVE",
+        "officeId": "cmpf8dhf9000apgv81bj9cbpo"
+      },
+      {
+        "id": "cmpf8dh9c0000pgv8iu4pbn4d",
+        "email": "api.audit.202605210830265585.president@chmsu.edu.ph",
+        "name": "API Audit president 202605210830265585",
+        "role": "PRESIDENTS",
+        "status": "ACTIVE",
+        "officeId": "cmpf8dheu0007pgv8ni9saq7w"
+      },
+      {
+        "id": "cmpf8dhdx0004pgv8kull2mnj",
+        "email": "api.audit.202605210830265585.unassigned@chmsu.edu.ph",
+        "name": "API Audit unassigned 202605210830265585",
+        "role": "OFFICE_HEAD",
+        "status": "ACTIVE",
+        "officeId": null
+      },
+      {
+        "id": "cmpf8dhdb0001pgv8391fh117",
+        "email": "api.audit.202605210830265585.vice-president@chmsu.edu.ph",
+        "name": "API Audit vice-president 202605210830265585",
+        "role": "VICE_PRESIDENTS",
+        "status": "ACTIVE",
+        "officeId": "cmpf8dhf30008pgv8mtkyd1uo"
+      }
+    ],
+    "offices": [
+      {
+        "id": "cmpf8dhf70009pgv8xne2sw1m",
+        "name": "API AUDIT DIRECTOR 202605210830265585",
+        "parentId": "cmpf8dhf30008pgv8mtkyd1uo",
+        "headId": "cmpf8dhdj0002pgv8dfi1chl6",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "cmpf8dhf9000apgv81bj9cbpo",
+        "name": "API AUDIT OFFICE HEAD 202605210830265585",
+        "parentId": "cmpf8dhf70009pgv8xne2sw1m",
+        "headId": "cmpf8dhdp0003pgv8dpqnjo8t",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "cmpf8dheu0007pgv8ni9saq7w",
+        "name": "API AUDIT PRESIDENT 202605210830265585",
+        "parentId": null,
+        "headId": "cmpf8dh9c0000pgv8iu4pbn4d",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "cmpf8di560000y8v8lkdk6pa6",
+        "name": "API AUDIT TEMP OFFICE RENAMED 202605210830265585",
+        "parentId": "cmpf8dheu0007pgv8ni9saq7w",
+        "headId": null,
+        "status": "INACTIVE"
+      },
+      {
+        "id": "cmpf8dhf30008pgv8mtkyd1uo",
+        "name": "API AUDIT VP 202605210830265585",
+        "parentId": "cmpf8dheu0007pgv8ni9saq7w",
+        "headId": "cmpf8dhdb0001pgv8391fh117",
+        "status": "ACTIVE"
+      }
+    ],
+    "plans": [
+      {
+        "id": "cmpf8di7g0001y8v8edk1hr5e",
+        "officeId": "cmpf8dhf9000apgv81bj9cbpo",
+        "createdById": "cmpf8dhdp0003pgv8dpqnjo8t",
+        "planningYear": 2030,
+        "status": "APPROVED",
+        "submittedAt": {},
+        "approvedAt": {}
+      }
+    ],
+    "goals": [
+      {
+        "id": "cmpf8dic10003y8v8ugr77wmj",
+        "planId": "cmpf8di7g0001y8v8edk1hr5e",
+        "officeId": "cmpf8dhf9000apgv81bj9cbpo",
+        "createdById": "cmpf8dhdp0003pgv8dpqnjo8t",
+        "resultLevel": "Result Level primary goal 202605210830265585",
+        "status": "IN_PROGRESS"
+      }
+    ],
+    "objectives": [
+      {
+        "id": "cmpf8dign0005y8v8ys9d8tz8",
+        "goalId": "cmpf8dic10003y8v8ugr77wmj",
+        "createdById": "cmpf8dhdp0003pgv8dpqnjo8t",
+        "resultLevel": "Result Level primary objective 202605210830265585",
+        "status": "COMPLETED"
+      }
+    ]
+  },
+  "steps": [
+    {
+      "category": "happy-path",
+      "module": "Auth",
+      "name": "Dev login for ADMIN bootstrap",
+      "method": "POST",
+      "path": "/auth/dev-login",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"access_token\": \"<redacted>\",\n  \"refresh_token\": \"<redacted>\"\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Auth",
+      "name": "Dev login for OFFICE_HEAD fixture",
+      "method": "POST",
+      "path": "/auth/dev-login",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"access_token\": \"<redacted>\",\n  \"refresh_token\": \"<redacted>\"\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Auth",
+      "name": "Dev login for DIRECTOR fixture",
+      "method": "POST",
+      "path": "/auth/dev-login",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"access_token\": \"<redacted>\",\n  \"refresh_token\": \"<redacted>\"\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Auth",
+      "name": "Get authenticated admin profile",
+      "method": "GET",
+      "path": "/auth/me",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmnockzva00008cv8pmywwzs8\",\n  \"email\": \"mark.meguizo@chmsu.edu.ph\",\n  \"name\": \"Mark Meguizo\",\n  \"avatar\": \"https://lh3.googleusercontent.com/a/ACg8ocL3OP9MS9tM18ZN2RdvhBXtMO19xV5vYcioFhzPKDGzZi72hg=s96-c\",\n  \"status\": \"ACTIVE\",\n  \"role\": \"ADMIN\",\n  \"passwordHash\": \"$2a$10$TvH5VbKc/uv0yNlRCcbaQ.JHddxNiobhDRX6.pI8x2Hoh6T8B5zim\",\n  \"office\": {\n    \"id\": \"cmnzr74pb0000i4v8sl99f7je\",\n    \"name\": \"PRESIDENT\"\n  },\n  \"hasPassword\": true\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Auth",
+      "name": "Refresh admin tokens",
+      "method": "POST",
+      "path": "/auth/refresh",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"access_token\": \"<redacted>\",\n  \"refresh_token\": \"<redacted>\"\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Auth",
+      "name": "Dev login for OFFICE_HEAD auth/me check",
+      "method": "POST",
+      "path": "/auth/dev-login",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"access_token\": \"<redacted>\",\n  \"refresh_token\": \"<redacted>\"\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Auth",
+      "name": "Get authenticated office head profile",
+      "method": "GET",
+      "path": "/auth/me",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n  \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n  \"name\": \"API Audit office-head 202605210830265585\",\n  \"avatar\": null,\n  \"status\": \"ACTIVE\",\n  \"role\": \"OFFICE_HEAD\",\n  \"passwordHash\": null,\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\"\n  },\n  \"hasPassword\": false\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Users",
+      "name": "List users",
+      "method": "GET",
+      "path": "/user?take=20&skip=0",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "[\n  {\n    \"id\": \"cmpf8dhe00005pgv8x8oj81co\",\n    \"email\": \"api.audit.202605210830265585.assignable@chmsu.edu.ph\",\n    \"name\": \"API Audit assignable 202605210830265585\",\n    \"avatar\": null,\n    \"status\": \"ACTIVE\",\n    \"role\": \"OFFICE_HEAD\",\n    \"office\": null\n  },\n  {\n    \"id\": \"cmpf8dhdj0002pgv8dfi1chl6\",\n    \"email\": \"api.audit.202605210830265585.director@chmsu.edu.ph\",\n    \"name\": \"API Audit director 202605210830265585\",\n    \"avatar\": null,\n    \"status\": \"ACTIVE\",\n    \"role\": \"DIRECTORS\",\n    \"office\": {\n      \"id\": \"cmpf8dhf70009pgv8xne2sw1m\",\n      \"name\": \"API AUDIT DIRECTOR 202605210830265585\"\n    }\n  },\n  {\n    \"id\": \"cmpf8dher0006pgv8o4i4lfn2\",\n    \"email\": \"api.audit.202605210830265585.new-office-head@chmsu.edu.ph\",\n    \"name\": \"API Audit new-office-head 202605210830265585\",\n    \"avatar\": null,\n    \"status\": \"ACTIVE\",\n    \"role\": \"OFFICE_HEAD\",\n    \"office\": null\n  },\n  {\n    \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n    \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n    \"name\": \"API Audit office-head 202605210830265585\",\n    \"avatar\": null,\n    \"status\": \"ACTIVE\",\n    \"role\": \"OFFICE_HEAD\",\n    \"office\": {\n      \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n      \"name\":..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Users",
+      "name": "List users without office",
+      "method": "GET",
+      "path": "/user/without-office",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "[\n  {\n    \"id\": \"cmpf8dhe00005pgv8x8oj81co\",\n    \"email\": \"api.audit.202605210830265585.assignable@chmsu.edu.ph\",\n    \"name\": \"API Audit assignable 202605210830265585\",\n    \"avatar\": null,\n    \"status\": \"ACTIVE\",\n    \"role\": \"OFFICE_HEAD\",\n    \"office\": null\n  },\n  {\n    \"id\": \"cmpf8dher0006pgv8o4i4lfn2\",\n    \"email\": \"api.audit.202605210830265585.new-office-head@chmsu.edu.ph\",\n    \"name\": \"API Audit new-office-head 202605210830265585\",\n    \"avatar\": null,\n    \"status\": \"ACTIVE\",\n    \"role\": \"OFFICE_HEAD\",\n    \"office\": null\n  },\n  {\n    \"id\": \"cmpf8dhdx0004pgv8kull2mnj\",\n    \"email\": \"api.audit.202605210830265585.unassigned@chmsu.edu.ph\",\n    \"name\": \"API Audit unassigned 202605210830265585\",\n    \"avatar\": null,\n    \"status\": \"ACTIVE\",\n    \"role\": \"OFFICE_HEAD\",\n    \"office\": null\n  }\n]"
+    },
+    {
+      "category": "happy-path",
+      "module": "Users",
+      "name": "Get user by id",
+      "method": "GET",
+      "path": "/user/user-id?userId=cmpf8dhdp0003pgv8dpqnjo8t",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n  \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n  \"name\": \"API Audit office-head 202605210830265585\",\n  \"avatar\": null,\n  \"status\": \"ACTIVE\",\n  \"role\": \"OFFICE_HEAD\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\"\n  }\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Users",
+      "name": "Get user by email",
+      "method": "GET",
+      "path": "/user/user-email?email=api.audit.202605210830265585.office-head%40chmsu.edu.ph",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n  \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n  \"name\": \"API Audit office-head 202605210830265585\",\n  \"avatar\": null,\n  \"status\": \"ACTIVE\",\n  \"role\": \"OFFICE_HEAD\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\"\n  }\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Users",
+      "name": "Change a user role",
+      "method": "POST",
+      "path": "/user/assign-role",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dhe00005pgv8x8oj81co\",\n  \"email\": \"api.audit.202605210830265585.assignable@chmsu.edu.ph\",\n  \"name\": \"API Audit assignable 202605210830265585\",\n  \"avatar\": null,\n  \"status\": \"ACTIVE\",\n  \"role\": \"DIRECTORS\",\n  \"office\": null\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Users",
+      "name": "Assign a user to an office",
+      "method": "POST",
+      "path": "/user/assign-office",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dhe00005pgv8x8oj81co\",\n  \"email\": \"api.audit.202605210830265585.assignable@chmsu.edu.ph\",\n  \"name\": \"API Audit assignable 202605210830265585\",\n  \"avatar\": null,\n  \"status\": \"ACTIVE\",\n  \"role\": \"DIRECTORS\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\"\n  }\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Users",
+      "name": "Toggle a user status",
+      "method": "POST",
+      "path": "/user/change-user-status",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dhe00005pgv8x8oj81co\",\n  \"email\": \"api.audit.202605210830265585.assignable@chmsu.edu.ph\",\n  \"name\": \"API Audit assignable 202605210830265585\",\n  \"avatar\": null,\n  \"status\": \"INACTIVE\",\n  \"role\": \"DIRECTORS\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\"\n  }\n}"
+    },
+    {
+      "category": "known-issue",
+      "module": "Users",
+      "name": "Known issue check: missing userId query param",
+      "method": "GET",
+      "path": "/user/user-id",
+      "expectedStatus": "400",
+      "actualStatus": 500,
+      "outcome": "failed",
+      "responsePreview": "{\n  \"statusCode\": 500,\n  \"timestamp\": \"2026-05-21T08:30:28.070Z\",\n  \"path\": \"/api/v1/user/user-id\",\n  \"message\": \"\\nInvalid `this.prisma.user.findUnique()` invocation in\\nC:\\\\Users\\\\markm\\\\Desktop\\\\BACKEND for RBAP_IDM\\\\backend\\\\src\\\\users\\\\users.service.ts:284:41\\n\\n  281 }\\n  282 \\n  283 async findAdminUserById(id: string) {\\n→ 284   const user = await this.prisma.user.findUnique({\\n          where: {\\n            id: undefined,\\n        ?   email?: String,\\n        ?   googleId?: String,\\n        ?   AND?: UserWhereInput | UserWhereInput[],\\n        ?   OR?: UserWhereInput[],\\n        ?   NOT?: UserWhereInput | UserWhereInput[],\\n        ?   name?: StringFilter | String,\\n        ?   avatar?: StringNullableFilter | String | Null,\\n        ?   passwordHash?: StringNullableFilter | String | Null,\\n        ?   role?: EnumRoleFilter | Role,\\n        ?   createdAt?: DateTimeFilter | DateTime,\\n        ?   updatedAt?: DateTimeFilter | DateTime,\\n        ?   status?: EnumUserStatusFilter | UserStatus,\\n        ?   officeId?: StringNullableFilter | String | Null,\\n        ?   office?: OfficeNullableScalarRelationFilter | OfficeWhereInput | Null,\\n        ?   headOfOffice?: OfficeNullabl..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Offices",
+      "name": "List active offices",
+      "method": "GET",
+      "path": "/offices?take=20&skip=0",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"data\": [\n    {\n      \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n      \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n      \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\",\n      \"headId\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n      \"members\": [\n        {\n          \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n          \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n          \"name\": \"API Audit office-head 202605210830265585\",\n          \"avatar\": null,\n          \"googleId\": \"api-audit-202605210830265585-office-head\",\n          \"passwordHash\": null,\n          \"role\": \"OFFICE_HEAD\",\n          \"createdAt\": \"2026-05-21T08:30:27.133Z\",\n          \"updatedAt\": \"2026-05-21T08:30:27.219Z\",\n          \"status\": \"ACTIVE\",\n          \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\"\n        },\n        {\n          \"id\": \"cmpf8dhe00005pgv8x8oj81co\",\n          \"email\": \"api.audit.202605210830265585.assignable@chmsu.edu.ph\",\n          \"name\": \"API Audit assignable 202605210830265585\",\n          \"avatar\": null,\n          \"googleId\": \"api-audit-202605210830265585-assignable\",\n          \"passwordHash\": null,\n          \"role\": \"DIRECTORS\",\n          \"createdAt\": \"2026-05-21T08:30:27.144Z\",\n          \"updatedAt\": \"2026-05..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Offices",
+      "name": "Create a temporary office",
+      "method": "POST",
+      "path": "/offices/add-office",
+      "expectedStatus": "201",
+      "actualStatus": 201,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8di560000y8v8lkdk6pa6\",\n  \"name\": \"API AUDIT TEMP OFFICE 202605210830265585\",\n  \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\",\n  \"headId\": \"cmpf8dher0006pgv8o4i4lfn2\",\n  \"createdAt\": \"2026-05-21T08:30:28.122Z\",\n  \"status\": \"ACTIVE\"\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Offices",
+      "name": "Update the temporary office",
+      "method": "PATCH",
+      "path": "/offices/update-office",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8di560000y8v8lkdk6pa6\",\n  \"name\": \"API AUDIT TEMP OFFICE RENAMED 202605210830265585\",\n  \"parentId\": \"cmpf8dheu0007pgv8ni9saq7w\",\n  \"headId\": \"cmpf8dher0006pgv8o4i4lfn2\",\n  \"createdAt\": \"2026-05-21T08:30:28.122Z\",\n  \"status\": \"ACTIVE\"\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Offices",
+      "name": "Delete the temporary office",
+      "method": "POST",
+      "path": "/offices/delete-office",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8di560000y8v8lkdk6pa6\",\n  \"name\": \"API AUDIT TEMP OFFICE RENAMED 202605210830265585\",\n  \"parentId\": \"cmpf8dheu0007pgv8ni9saq7w\",\n  \"headId\": null,\n  \"createdAt\": \"2026-05-21T08:30:28.122Z\",\n  \"status\": \"INACTIVE\"\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Offices",
+      "name": "List office head accessible offices",
+      "method": "GET",
+      "path": "/offices/accessible",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "[\n  {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n    \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\",\n    \"headId\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n    \"status\": \"ACTIVE\",\n    \"head\": {\n      \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n      \"name\": \"API Audit office-head 202605210830265585\",\n      \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n      \"role\": \"OFFICE_HEAD\"\n    }\n  }\n]"
+    },
+    {
+      "category": "happy-path",
+      "module": "Offices",
+      "name": "List director accessible offices",
+      "method": "GET",
+      "path": "/offices/accessible",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "[\n  {\n    \"id\": \"cmpf8dhf70009pgv8xne2sw1m\",\n    \"name\": \"API AUDIT DIRECTOR 202605210830265585\",\n    \"parentId\": \"cmpf8dhf30008pgv8mtkyd1uo\",\n    \"headId\": \"cmpf8dhdj0002pgv8dfi1chl6\",\n    \"status\": \"ACTIVE\",\n    \"head\": {\n      \"id\": \"cmpf8dhdj0002pgv8dfi1chl6\",\n      \"name\": \"API Audit director 202605210830265585\",\n      \"email\": \"api.audit.202605210830265585.director@chmsu.edu.ph\",\n      \"role\": \"DIRECTORS\"\n    }\n  },\n  {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n    \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\",\n    \"headId\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n    \"status\": \"ACTIVE\",\n    \"head\": {\n      \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n      \"name\": \"API Audit office-head 202605210830265585\",\n      \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n      \"role\": \"OFFICE_HEAD\"\n    }\n  }\n]"
+    },
+    {
+      "category": "happy-path",
+      "module": "Plans",
+      "name": "Create a draft RBAP plan",
+      "method": "POST",
+      "path": "/plans",
+      "expectedStatus": "201",
+      "actualStatus": 201,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8di7g0001y8v8edk1hr5e\",\n  \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n  \"planningYear\": 2030,\n  \"campus\": \"Main Campus primary\",\n  \"programProjectActivityKRA\": \"KRA primary 202605210830265585\",\n  \"strategicAlignment\": \"Strategic Alignment primary 202605210830265585\",\n  \"breakthroughGoals\": \"Breakthrough Goal primary 202605210830265585\",\n  \"strategicObjectives\": \"Strategic Objective primary 202605210830265585\",\n  \"datePrepared\": \"2030-01-15T00:00:00.000Z\",\n  \"monitoringFrequency\": \"Quarterly\",\n  \"reportingOffice\": \"Reporting Office primary 202605210830265585\",\n  \"status\": \"DRAFT\",\n  \"submittedAt\": null,\n  \"approvedAt\": null,\n  \"createdAt\": \"2026-05-21T08:30:28.204Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.204Z\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n    \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\"\n  },\n  \"createdBy\": {\n    \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n    \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n    \"name\": \"API Audit office-head 202605210830265585\",\n    \"role\": \"OFFICE_HEAD\"\n  },\n  \"_count\": {\n    \"goals\": 0\n  }\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Plans",
+      "name": "List visible plans for the office head",
+      "method": "GET",
+      "path": "/plans?planningYear=2030&take=10&skip=0",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"data\": [\n    {\n      \"id\": \"cmpf8di7g0001y8v8edk1hr5e\",\n      \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n      \"planningYear\": 2030,\n      \"campus\": \"Main Campus primary\",\n      \"programProjectActivityKRA\": \"KRA primary 202605210830265585\",\n      \"strategicAlignment\": \"Strategic Alignment primary 202605210830265585\",\n      \"breakthroughGoals\": \"Breakthrough Goal primary 202605210830265585\",\n      \"strategicObjectives\": \"Strategic Objective primary 202605210830265585\",\n      \"datePrepared\": \"2030-01-15T00:00:00.000Z\",\n      \"monitoringFrequency\": \"Quarterly\",\n      \"reportingOffice\": \"Reporting Office primary 202605210830265585\",\n      \"status\": \"DRAFT\",\n      \"submittedAt\": null,\n      \"approvedAt\": null,\n      \"createdAt\": \"2026-05-21T08:30:28.204Z\",\n      \"updatedAt\": \"2026-05-21T08:30:28.204Z\",\n      \"office\": {\n        \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n        \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n        \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\"\n      },\n      \"createdBy\": {\n        \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n        \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n        \"name\": \"API Audit office-head 202605210830265585\",\n        \"rol..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Plans",
+      "name": "Get one plan",
+      "method": "GET",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8di7g0001y8v8edk1hr5e\",\n  \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n  \"planningYear\": 2030,\n  \"campus\": \"Main Campus primary\",\n  \"programProjectActivityKRA\": \"KRA primary 202605210830265585\",\n  \"strategicAlignment\": \"Strategic Alignment primary 202605210830265585\",\n  \"breakthroughGoals\": \"Breakthrough Goal primary 202605210830265585\",\n  \"strategicObjectives\": \"Strategic Objective primary 202605210830265585\",\n  \"datePrepared\": \"2030-01-15T00:00:00.000Z\",\n  \"monitoringFrequency\": \"Quarterly\",\n  \"reportingOffice\": \"Reporting Office primary 202605210830265585\",\n  \"status\": \"DRAFT\",\n  \"submittedAt\": null,\n  \"approvedAt\": null,\n  \"createdAt\": \"2026-05-21T08:30:28.204Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.204Z\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n    \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\"\n  },\n  \"createdBy\": {\n    \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n    \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n    \"name\": \"API Audit office-head 202605210830265585\",\n    \"role\": \"OFFICE_HEAD\"\n  },\n  \"_count\": {\n    \"goals\": 0\n  }\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Plans",
+      "name": "Update a draft plan",
+      "method": "PATCH",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8di7g0001y8v8edk1hr5e\",\n  \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n  \"planningYear\": 2030,\n  \"campus\": \"Main Campus primary\",\n  \"programProjectActivityKRA\": \"KRA primary 202605210830265585\",\n  \"strategicAlignment\": \"Strategic Alignment primary 202605210830265585\",\n  \"breakthroughGoals\": \"Breakthrough Goal primary 202605210830265585\",\n  \"strategicObjectives\": \"Strategic Objective primary 202605210830265585\",\n  \"datePrepared\": \"2030-01-15T00:00:00.000Z\",\n  \"monitoringFrequency\": \"Monthly\",\n  \"reportingOffice\": \"RBAP Audit Reporting Office\",\n  \"status\": \"DRAFT\",\n  \"submittedAt\": null,\n  \"approvedAt\": null,\n  \"createdAt\": \"2026-05-21T08:30:28.204Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.332Z\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n    \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\"\n  },\n  \"createdBy\": {\n    \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n    \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n    \"name\": \"API Audit office-head 202605210830265585\",\n    \"role\": \"OFFICE_HEAD\"\n  },\n  \"_count\": {\n    \"goals\": 0\n  }\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Plans",
+      "name": "Create a second draft plan for delete coverage",
+      "method": "POST",
+      "path": "/plans",
+      "expectedStatus": "201",
+      "actualStatus": 201,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dibj0002y8v8mp1gclvz\",\n  \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n  \"planningYear\": 2031,\n  \"campus\": \"Main Campus disposable\",\n  \"programProjectActivityKRA\": \"KRA disposable 202605210830265585\",\n  \"strategicAlignment\": \"Strategic Alignment disposable 202605210830265585\",\n  \"breakthroughGoals\": \"Breakthrough Goal disposable 202605210830265585\",\n  \"strategicObjectives\": \"Strategic Objective disposable 202605210830265585\",\n  \"datePrepared\": \"2031-01-15T00:00:00.000Z\",\n  \"monitoringFrequency\": \"Quarterly\",\n  \"reportingOffice\": \"Reporting Office disposable 202605210830265585\",\n  \"status\": \"DRAFT\",\n  \"submittedAt\": null,\n  \"approvedAt\": null,\n  \"createdAt\": \"2026-05-21T08:30:28.351Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.351Z\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n    \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\"\n  },\n  \"createdBy\": {\n    \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n    \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n    \"name\": \"API Audit office-head 202605210830265585\",\n    \"role\": \"OFFICE_HEAD\"\n  },\n  \"_count\": {\n    \"goals\": 0\n  }\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Goals",
+      "name": "Create a goal under the primary plan",
+      "method": "POST",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/goals",
+      "expectedStatus": "201",
+      "actualStatus": 201,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n  \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n  \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n  \"resultLevel\": \"Result Level primary goal 202605210830265585\",\n  \"targetResult\": \"Target Result primary goal 202605210830265585\",\n  \"keyActions\": \"Key Actions primary goal 202605210830265585\",\n  \"keyRisk\": \"Key Risk primary goal 202605210830265585\",\n  \"mitigationMeasures\": \"Mitigation primary goal 202605210830265585\",\n  \"keyPerformanceIndicator\": \"KPI primary goal 202605210830265585\",\n  \"target\": \"Target primary goal 202605210830265585\",\n  \"responsibleOfficePerson\": \"Responsible Person primary goal 202605210830265585\",\n  \"timeline\": \"Timeline primary goal 202605210830265585\",\n  \"fundSource\": \"Fund Source primary goal 202605210830265585\",\n  \"budgetRequirements\": \"1000\",\n  \"budgetAllocation\": \"750\",\n  \"meansOfVerification\": \"MOV primary goal 202605210830265585\",\n  \"status\": \"NOT_STARTED\",\n  \"createdAt\": \"2026-05-21T08:30:28.369Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.369Z\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\"\n  },\n  \"plan\": {\n    \"id\": \"cmpf8di7g0001y8v8edk1hr5e\",\n    \"planningYear\": 2030,\n ..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Goals",
+      "name": "Create a second goal for delete coverage",
+      "method": "POST",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/goals",
+      "expectedStatus": "201",
+      "actualStatus": 201,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dicv0004y8v8cnryzati\",\n  \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n  \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n  \"resultLevel\": \"Result Level disposable goal 202605210830265585\",\n  \"targetResult\": \"Target Result disposable goal 202605210830265585\",\n  \"keyActions\": \"Key Actions disposable goal 202605210830265585\",\n  \"keyRisk\": \"Key Risk disposable goal 202605210830265585\",\n  \"mitigationMeasures\": \"Mitigation disposable goal 202605210830265585\",\n  \"keyPerformanceIndicator\": \"KPI disposable goal 202605210830265585\",\n  \"target\": \"Target disposable goal 202605210830265585\",\n  \"responsibleOfficePerson\": \"Responsible Person disposable goal 202605210830265585\",\n  \"timeline\": \"Timeline disposable goal 202605210830265585\",\n  \"fundSource\": \"Fund Source disposable goal 202605210830265585\",\n  \"budgetRequirements\": \"1000\",\n  \"budgetAllocation\": \"750\",\n  \"meansOfVerification\": \"MOV disposable goal 202605210830265585\",\n  \"status\": \"NOT_STARTED\",\n  \"createdAt\": \"2026-05-21T08:30:28.399Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.399Z\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\"\n  },\n  \"plan\": {\n    \"id\": \"cmpf8di7g0001y8v8edk1h..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Goals",
+      "name": "List goals under a plan",
+      "method": "GET",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/goals?take=10&skip=0",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"data\": [\n    {\n      \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n      \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n      \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n      \"resultLevel\": \"Result Level primary goal 202605210830265585\",\n      \"targetResult\": \"Target Result primary goal 202605210830265585\",\n      \"keyActions\": \"Key Actions primary goal 202605210830265585\",\n      \"keyRisk\": \"Key Risk primary goal 202605210830265585\",\n      \"mitigationMeasures\": \"Mitigation primary goal 202605210830265585\",\n      \"keyPerformanceIndicator\": \"KPI primary goal 202605210830265585\",\n      \"target\": \"Target primary goal 202605210830265585\",\n      \"responsibleOfficePerson\": \"Responsible Person primary goal 202605210830265585\",\n      \"timeline\": \"Timeline primary goal 202605210830265585\",\n      \"fundSource\": \"Fund Source primary goal 202605210830265585\",\n      \"budgetRequirements\": \"1000\",\n      \"budgetAllocation\": \"750\",\n      \"meansOfVerification\": \"MOV primary goal 202605210830265585\",\n      \"status\": \"NOT_STARTED\",\n      \"createdAt\": \"2026-05-21T08:30:28.369Z\",\n      \"updatedAt\": \"2026-05-21T08:30:28.369Z\",\n      \"office\": {\n        \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n        \"name\": \"API AUDIT OFFICE HE..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Goals",
+      "name": "Get one goal under a plan",
+      "method": "GET",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/goals/cmpf8dic10003y8v8ugr77wmj",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n  \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n  \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n  \"resultLevel\": \"Result Level primary goal 202605210830265585\",\n  \"targetResult\": \"Target Result primary goal 202605210830265585\",\n  \"keyActions\": \"Key Actions primary goal 202605210830265585\",\n  \"keyRisk\": \"Key Risk primary goal 202605210830265585\",\n  \"mitigationMeasures\": \"Mitigation primary goal 202605210830265585\",\n  \"keyPerformanceIndicator\": \"KPI primary goal 202605210830265585\",\n  \"target\": \"Target primary goal 202605210830265585\",\n  \"responsibleOfficePerson\": \"Responsible Person primary goal 202605210830265585\",\n  \"timeline\": \"Timeline primary goal 202605210830265585\",\n  \"fundSource\": \"Fund Source primary goal 202605210830265585\",\n  \"budgetRequirements\": \"1000\",\n  \"budgetAllocation\": \"750\",\n  \"meansOfVerification\": \"MOV primary goal 202605210830265585\",\n  \"status\": \"NOT_STARTED\",\n  \"createdAt\": \"2026-05-21T08:30:28.369Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.369Z\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\"\n  },\n  \"plan\": {\n    \"id\": \"cmpf8di7g0001y8v8edk1hr5e\",\n    \"planningYear\": 2030,\n ..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Goals",
+      "name": "Update a goal",
+      "method": "PATCH",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/goals/cmpf8dic10003y8v8ugr77wmj",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n  \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n  \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n  \"resultLevel\": \"Result Level primary goal 202605210830265585\",\n  \"targetResult\": \"Target Result primary goal 202605210830265585\",\n  \"keyActions\": \"Key Actions primary goal 202605210830265585\",\n  \"keyRisk\": \"Key Risk primary goal 202605210830265585\",\n  \"mitigationMeasures\": \"Mitigation primary goal 202605210830265585\",\n  \"keyPerformanceIndicator\": \"KPI primary goal 202605210830265585\",\n  \"target\": \"Target primary goal 202605210830265585\",\n  \"responsibleOfficePerson\": \"Responsible Person primary goal 202605210830265585\",\n  \"timeline\": \"Q2-Q4 2030\",\n  \"fundSource\": \"Fund Source primary goal 202605210830265585\",\n  \"budgetRequirements\": \"1000\",\n  \"budgetAllocation\": \"750\",\n  \"meansOfVerification\": \"MOV primary goal 202605210830265585\",\n  \"status\": \"IN_PROGRESS\",\n  \"createdAt\": \"2026-05-21T08:30:28.369Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.484Z\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\"\n  },\n  \"plan\": {\n    \"id\": \"cmpf8di7g0001y8v8edk1hr5e\",\n    \"planningYear\": 2030,\n    \"status\": \"DRAFT\"\n  },\n  \"c..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Goals",
+      "name": "Browse goals without plan id",
+      "method": "GET",
+      "path": "/goals?planningYear=2030&planId=cmpf8di7g0001y8v8edk1hr5e&take=10&skip=0",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"data\": [\n    {\n      \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n      \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n      \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n      \"resultLevel\": \"Result Level primary goal 202605210830265585\",\n      \"targetResult\": \"Target Result primary goal 202605210830265585\",\n      \"keyActions\": \"Key Actions primary goal 202605210830265585\",\n      \"keyRisk\": \"Key Risk primary goal 202605210830265585\",\n      \"mitigationMeasures\": \"Mitigation primary goal 202605210830265585\",\n      \"keyPerformanceIndicator\": \"KPI primary goal 202605210830265585\",\n      \"target\": \"Target primary goal 202605210830265585\",\n      \"responsibleOfficePerson\": \"Responsible Person primary goal 202605210830265585\",\n      \"timeline\": \"Q2-Q4 2030\",\n      \"fundSource\": \"Fund Source primary goal 202605210830265585\",\n      \"budgetRequirements\": \"1000\",\n      \"budgetAllocation\": \"750\",\n      \"meansOfVerification\": \"MOV primary goal 202605210830265585\",\n      \"status\": \"IN_PROGRESS\",\n      \"createdAt\": \"2026-05-21T08:30:28.369Z\",\n      \"updatedAt\": \"2026-05-21T08:30:28.484Z\",\n      \"office\": {\n        \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n        \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\"\n      }..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Goals",
+      "name": "Get one goal without plan id",
+      "method": "GET",
+      "path": "/goals/cmpf8dic10003y8v8ugr77wmj",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n  \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n  \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n  \"resultLevel\": \"Result Level primary goal 202605210830265585\",\n  \"targetResult\": \"Target Result primary goal 202605210830265585\",\n  \"keyActions\": \"Key Actions primary goal 202605210830265585\",\n  \"keyRisk\": \"Key Risk primary goal 202605210830265585\",\n  \"mitigationMeasures\": \"Mitigation primary goal 202605210830265585\",\n  \"keyPerformanceIndicator\": \"KPI primary goal 202605210830265585\",\n  \"target\": \"Target primary goal 202605210830265585\",\n  \"responsibleOfficePerson\": \"Responsible Person primary goal 202605210830265585\",\n  \"timeline\": \"Q2-Q4 2030\",\n  \"fundSource\": \"Fund Source primary goal 202605210830265585\",\n  \"budgetRequirements\": \"1000\",\n  \"budgetAllocation\": \"750\",\n  \"meansOfVerification\": \"MOV primary goal 202605210830265585\",\n  \"status\": \"IN_PROGRESS\",\n  \"createdAt\": \"2026-05-21T08:30:28.369Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.484Z\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\"\n  },\n  \"plan\": {\n    \"id\": \"cmpf8di7g0001y8v8edk1hr5e\",\n    \"planningYear\": 2030,\n    \"status\": \"DRAFT\"\n  },\n  \"c..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Objectives",
+      "name": "Create an objective under the primary goal",
+      "method": "POST",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/goals/cmpf8dic10003y8v8ugr77wmj/objectives",
+      "expectedStatus": "201",
+      "actualStatus": 201,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dign0005y8v8ys9d8tz8\",\n  \"goalId\": \"cmpf8dic10003y8v8ugr77wmj\",\n  \"resultLevel\": \"Result Level primary objective 202605210830265585\",\n  \"targetResult\": \"Target Result primary objective 202605210830265585\",\n  \"keyActions\": \"Key Actions primary objective 202605210830265585\",\n  \"keyRisk\": \"Key Risk primary objective 202605210830265585\",\n  \"mitigationMeasures\": \"Mitigation primary objective 202605210830265585\",\n  \"keyPerformanceIndicator\": \"KPI primary objective 202605210830265585\",\n  \"target\": \"Target primary objective 202605210830265585\",\n  \"responsibleOfficePerson\": \"Responsible Person primary objective 202605210830265585\",\n  \"timeline\": \"Timeline primary objective 202605210830265585\",\n  \"fundSource\": \"Fund Source primary objective 202605210830265585\",\n  \"budgetRequirements\": \"1000\",\n  \"budgetAllocation\": \"750\",\n  \"meansOfVerification\": \"MOV primary objective 202605210830265585\",\n  \"status\": \"NOT_STARTED\",\n  \"createdAt\": \"2026-05-21T08:30:28.535Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.535Z\",\n  \"goal\": {\n    \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n    \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n    \"resultLevel\": \"Result Level primary goal 202605210830265585\",\n    \"office\": {\n  ..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Objectives",
+      "name": "Create a second objective for delete coverage",
+      "method": "POST",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/goals/cmpf8dic10003y8v8ugr77wmj/objectives",
+      "expectedStatus": "201",
+      "actualStatus": 201,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dih10006y8v8xj3uhdgd\",\n  \"goalId\": \"cmpf8dic10003y8v8ugr77wmj\",\n  \"resultLevel\": \"Result Level disposable objective 202605210830265585\",\n  \"targetResult\": \"Target Result disposable objective 202605210830265585\",\n  \"keyActions\": \"Key Actions disposable objective 202605210830265585\",\n  \"keyRisk\": \"Key Risk disposable objective 202605210830265585\",\n  \"mitigationMeasures\": \"Mitigation disposable objective 202605210830265585\",\n  \"keyPerformanceIndicator\": \"KPI disposable objective 202605210830265585\",\n  \"target\": \"Target disposable objective 202605210830265585\",\n  \"responsibleOfficePerson\": \"Responsible Person disposable objective 202605210830265585\",\n  \"timeline\": \"Timeline disposable objective 202605210830265585\",\n  \"fundSource\": \"Fund Source disposable objective 202605210830265585\",\n  \"budgetRequirements\": \"1000\",\n  \"budgetAllocation\": \"750\",\n  \"meansOfVerification\": \"MOV disposable objective 202605210830265585\",\n  \"status\": \"NOT_STARTED\",\n  \"createdAt\": \"2026-05-21T08:30:28.549Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.549Z\",\n  \"goal\": {\n    \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n    \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n    \"resultLevel\": \"Result Level primary goal 202605..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Objectives",
+      "name": "List objectives under a goal",
+      "method": "GET",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/goals/cmpf8dic10003y8v8ugr77wmj/objectives?take=10&skip=0",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"data\": [\n    {\n      \"id\": \"cmpf8dign0005y8v8ys9d8tz8\",\n      \"goalId\": \"cmpf8dic10003y8v8ugr77wmj\",\n      \"resultLevel\": \"Result Level primary objective 202605210830265585\",\n      \"targetResult\": \"Target Result primary objective 202605210830265585\",\n      \"keyActions\": \"Key Actions primary objective 202605210830265585\",\n      \"keyRisk\": \"Key Risk primary objective 202605210830265585\",\n      \"mitigationMeasures\": \"Mitigation primary objective 202605210830265585\",\n      \"keyPerformanceIndicator\": \"KPI primary objective 202605210830265585\",\n      \"target\": \"Target primary objective 202605210830265585\",\n      \"responsibleOfficePerson\": \"Responsible Person primary objective 202605210830265585\",\n      \"timeline\": \"Timeline primary objective 202605210830265585\",\n      \"fundSource\": \"Fund Source primary objective 202605210830265585\",\n      \"budgetRequirements\": \"1000\",\n      \"budgetAllocation\": \"750\",\n      \"meansOfVerification\": \"MOV primary objective 202605210830265585\",\n      \"status\": \"NOT_STARTED\",\n      \"createdAt\": \"2026-05-21T08:30:28.535Z\",\n      \"updatedAt\": \"2026-05-21T08:30:28.535Z\",\n      \"goal\": {\n        \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n        \"planId\": \"cmpf8di7g00..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Objectives",
+      "name": "Get one objective under a goal",
+      "method": "GET",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/goals/cmpf8dic10003y8v8ugr77wmj/objectives/cmpf8dign0005y8v8ys9d8tz8",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dign0005y8v8ys9d8tz8\",\n  \"goalId\": \"cmpf8dic10003y8v8ugr77wmj\",\n  \"resultLevel\": \"Result Level primary objective 202605210830265585\",\n  \"targetResult\": \"Target Result primary objective 202605210830265585\",\n  \"keyActions\": \"Key Actions primary objective 202605210830265585\",\n  \"keyRisk\": \"Key Risk primary objective 202605210830265585\",\n  \"mitigationMeasures\": \"Mitigation primary objective 202605210830265585\",\n  \"keyPerformanceIndicator\": \"KPI primary objective 202605210830265585\",\n  \"target\": \"Target primary objective 202605210830265585\",\n  \"responsibleOfficePerson\": \"Responsible Person primary objective 202605210830265585\",\n  \"timeline\": \"Timeline primary objective 202605210830265585\",\n  \"fundSource\": \"Fund Source primary objective 202605210830265585\",\n  \"budgetRequirements\": \"1000\",\n  \"budgetAllocation\": \"750\",\n  \"meansOfVerification\": \"MOV primary objective 202605210830265585\",\n  \"status\": \"NOT_STARTED\",\n  \"createdAt\": \"2026-05-21T08:30:28.535Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.535Z\",\n  \"goal\": {\n    \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n    \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n    \"resultLevel\": \"Result Level primary goal 202605210830265585\",\n    \"office\": {\n  ..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Objectives",
+      "name": "Update an objective",
+      "method": "PATCH",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/goals/cmpf8dic10003y8v8ugr77wmj/objectives/cmpf8dign0005y8v8ys9d8tz8",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dign0005y8v8ys9d8tz8\",\n  \"goalId\": \"cmpf8dic10003y8v8ugr77wmj\",\n  \"resultLevel\": \"Result Level primary objective 202605210830265585\",\n  \"targetResult\": \"Target Result primary objective 202605210830265585\",\n  \"keyActions\": \"Key Actions primary objective 202605210830265585\",\n  \"keyRisk\": \"Key Risk primary objective 202605210830265585\",\n  \"mitigationMeasures\": \"Mitigation primary objective 202605210830265585\",\n  \"keyPerformanceIndicator\": \"KPI primary objective 202605210830265585\",\n  \"target\": \"Target primary objective 202605210830265585\",\n  \"responsibleOfficePerson\": \"Responsible Person primary objective 202605210830265585\",\n  \"timeline\": \"Q4 2030\",\n  \"fundSource\": \"Fund Source primary objective 202605210830265585\",\n  \"budgetRequirements\": \"1000\",\n  \"budgetAllocation\": \"750\",\n  \"meansOfVerification\": \"MOV primary objective 202605210830265585\",\n  \"status\": \"COMPLETED\",\n  \"createdAt\": \"2026-05-21T08:30:28.535Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.586Z\",\n  \"goal\": {\n    \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n    \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n    \"resultLevel\": \"Result Level primary goal 202605210830265585\",\n    \"office\": {\n      \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n ..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Objectives",
+      "name": "Browse objectives without goal id",
+      "method": "GET",
+      "path": "/objectives?planningYear=2030&goalId=cmpf8dic10003y8v8ugr77wmj&take=10&skip=0",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"data\": [\n    {\n      \"id\": \"cmpf8dign0005y8v8ys9d8tz8\",\n      \"goalId\": \"cmpf8dic10003y8v8ugr77wmj\",\n      \"resultLevel\": \"Result Level primary objective 202605210830265585\",\n      \"targetResult\": \"Target Result primary objective 202605210830265585\",\n      \"keyActions\": \"Key Actions primary objective 202605210830265585\",\n      \"keyRisk\": \"Key Risk primary objective 202605210830265585\",\n      \"mitigationMeasures\": \"Mitigation primary objective 202605210830265585\",\n      \"keyPerformanceIndicator\": \"KPI primary objective 202605210830265585\",\n      \"target\": \"Target primary objective 202605210830265585\",\n      \"responsibleOfficePerson\": \"Responsible Person primary objective 202605210830265585\",\n      \"timeline\": \"Q4 2030\",\n      \"fundSource\": \"Fund Source primary objective 202605210830265585\",\n      \"budgetRequirements\": \"1000\",\n      \"budgetAllocation\": \"750\",\n      \"meansOfVerification\": \"MOV primary objective 202605210830265585\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"2026-05-21T08:30:28.535Z\",\n      \"updatedAt\": \"2026-05-21T08:30:28.586Z\",\n      \"goal\": {\n        \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n        \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n        \"resultLevel\": ..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Objectives",
+      "name": "Get one objective without goal id",
+      "method": "GET",
+      "path": "/objectives/cmpf8dign0005y8v8ys9d8tz8",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dign0005y8v8ys9d8tz8\",\n  \"goalId\": \"cmpf8dic10003y8v8ugr77wmj\",\n  \"resultLevel\": \"Result Level primary objective 202605210830265585\",\n  \"targetResult\": \"Target Result primary objective 202605210830265585\",\n  \"keyActions\": \"Key Actions primary objective 202605210830265585\",\n  \"keyRisk\": \"Key Risk primary objective 202605210830265585\",\n  \"mitigationMeasures\": \"Mitigation primary objective 202605210830265585\",\n  \"keyPerformanceIndicator\": \"KPI primary objective 202605210830265585\",\n  \"target\": \"Target primary objective 202605210830265585\",\n  \"responsibleOfficePerson\": \"Responsible Person primary objective 202605210830265585\",\n  \"timeline\": \"Q4 2030\",\n  \"fundSource\": \"Fund Source primary objective 202605210830265585\",\n  \"budgetRequirements\": \"1000\",\n  \"budgetAllocation\": \"750\",\n  \"meansOfVerification\": \"MOV primary objective 202605210830265585\",\n  \"status\": \"COMPLETED\",\n  \"createdAt\": \"2026-05-21T08:30:28.535Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.586Z\",\n  \"goal\": {\n    \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n    \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n    \"resultLevel\": \"Result Level primary goal 202605210830265585\",\n    \"office\": {\n      \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n ..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Objectives",
+      "name": "Delete the disposable objective",
+      "method": "DELETE",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/goals/cmpf8dic10003y8v8ugr77wmj/objectives/cmpf8dih10006y8v8xj3uhdgd",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dih10006y8v8xj3uhdgd\",\n  \"goalId\": \"cmpf8dic10003y8v8ugr77wmj\",\n  \"resultLevel\": \"Result Level disposable objective 202605210830265585\",\n  \"targetResult\": \"Target Result disposable objective 202605210830265585\",\n  \"keyActions\": \"Key Actions disposable objective 202605210830265585\",\n  \"keyRisk\": \"Key Risk disposable objective 202605210830265585\",\n  \"mitigationMeasures\": \"Mitigation disposable objective 202605210830265585\",\n  \"keyPerformanceIndicator\": \"KPI disposable objective 202605210830265585\",\n  \"target\": \"Target disposable objective 202605210830265585\",\n  \"responsibleOfficePerson\": \"Responsible Person disposable objective 202605210830265585\",\n  \"timeline\": \"Timeline disposable objective 202605210830265585\",\n  \"fundSource\": \"Fund Source disposable objective 202605210830265585\",\n  \"budgetRequirements\": \"1000\",\n  \"budgetAllocation\": \"750\",\n  \"meansOfVerification\": \"MOV disposable objective 202605210830265585\",\n  \"status\": \"NOT_STARTED\",\n  \"createdAt\": \"2026-05-21T08:30:28.549Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.549Z\",\n  \"goal\": {\n    \"id\": \"cmpf8dic10003y8v8ugr77wmj\",\n    \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n    \"resultLevel\": \"Result Level primary goal 202605..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Goals",
+      "name": "Delete the disposable goal",
+      "method": "DELETE",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/goals/cmpf8dicv0004y8v8cnryzati",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dicv0004y8v8cnryzati\",\n  \"planId\": \"cmpf8di7g0001y8v8edk1hr5e\",\n  \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n  \"resultLevel\": \"Result Level disposable goal 202605210830265585\",\n  \"targetResult\": \"Target Result disposable goal 202605210830265585\",\n  \"keyActions\": \"Key Actions disposable goal 202605210830265585\",\n  \"keyRisk\": \"Key Risk disposable goal 202605210830265585\",\n  \"mitigationMeasures\": \"Mitigation disposable goal 202605210830265585\",\n  \"keyPerformanceIndicator\": \"KPI disposable goal 202605210830265585\",\n  \"target\": \"Target disposable goal 202605210830265585\",\n  \"responsibleOfficePerson\": \"Responsible Person disposable goal 202605210830265585\",\n  \"timeline\": \"Timeline disposable goal 202605210830265585\",\n  \"fundSource\": \"Fund Source disposable goal 202605210830265585\",\n  \"budgetRequirements\": \"1000\",\n  \"budgetAllocation\": \"750\",\n  \"meansOfVerification\": \"MOV disposable goal 202605210830265585\",\n  \"status\": \"NOT_STARTED\",\n  \"createdAt\": \"2026-05-21T08:30:28.399Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.399Z\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\"\n  },\n  \"plan\": {\n    \"id\": \"cmpf8di7g0001y8v8edk1h..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Plans",
+      "name": "Get plan summary for a director view",
+      "method": "GET",
+      "path": "/plans/summary?officeId=cmpf8dhf9000apgv81bj9cbpo&planningYear=2030",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"filters\": {\n    \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"planningYear\": 2030\n  },\n  \"overview\": {\n    \"totalPlans\": 1,\n    \"draftPlans\": 1,\n    \"submittedPlans\": 0,\n    \"approvedPlans\": 0,\n    \"pendingApprovalCount\": 0\n  },\n  \"byOffice\": [\n    {\n      \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n      \"officeName\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n      \"totalPlans\": 1,\n      \"draftPlans\": 1,\n      \"submittedPlans\": 0,\n      \"approvedPlans\": 0\n    }\n  ],\n  \"byYear\": [\n    {\n      \"planningYear\": 2030,\n      \"totalPlans\": 1,\n      \"draftPlans\": 1,\n      \"submittedPlans\": 0,\n      \"approvedPlans\": 0\n    }\n  ]\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Plans",
+      "name": "Delete the disposable draft plan",
+      "method": "DELETE",
+      "path": "/plans/cmpf8dibj0002y8v8mp1gclvz",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8dibj0002y8v8mp1gclvz\",\n  \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n  \"planningYear\": 2031,\n  \"campus\": \"Main Campus disposable\",\n  \"programProjectActivityKRA\": \"KRA disposable 202605210830265585\",\n  \"strategicAlignment\": \"Strategic Alignment disposable 202605210830265585\",\n  \"breakthroughGoals\": \"Breakthrough Goal disposable 202605210830265585\",\n  \"strategicObjectives\": \"Strategic Objective disposable 202605210830265585\",\n  \"datePrepared\": \"2031-01-15T00:00:00.000Z\",\n  \"monitoringFrequency\": \"Quarterly\",\n  \"reportingOffice\": \"Reporting Office disposable 202605210830265585\",\n  \"status\": \"DRAFT\",\n  \"submittedAt\": null,\n  \"approvedAt\": null,\n  \"createdAt\": \"2026-05-21T08:30:28.351Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.351Z\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n    \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\"\n  },\n  \"createdBy\": {\n    \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n    \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n    \"name\": \"API Audit office-head 202605210830265585\",\n    \"role\": \"OFFICE_HEAD\"\n  },\n  \"_count\": {\n    \"goals\": 0\n  }\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Plans",
+      "name": "Submit the primary plan",
+      "method": "PATCH",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/submit",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8di7g0001y8v8edk1hr5e\",\n  \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n  \"planningYear\": 2030,\n  \"campus\": \"Main Campus primary\",\n  \"programProjectActivityKRA\": \"KRA primary 202605210830265585\",\n  \"strategicAlignment\": \"Strategic Alignment primary 202605210830265585\",\n  \"breakthroughGoals\": \"Breakthrough Goal primary 202605210830265585\",\n  \"strategicObjectives\": \"Strategic Objective primary 202605210830265585\",\n  \"datePrepared\": \"2030-01-15T00:00:00.000Z\",\n  \"monitoringFrequency\": \"Monthly\",\n  \"reportingOffice\": \"RBAP Audit Reporting Office\",\n  \"status\": \"SUBMITTED\",\n  \"submittedAt\": \"2026-05-21T08:30:28.681Z\",\n  \"approvedAt\": null,\n  \"createdAt\": \"2026-05-21T08:30:28.204Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.684Z\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n    \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\"\n  },\n  \"createdBy\": {\n    \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n    \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n    \"name\": \"API Audit office-head 202605210830265585\",\n    \"role\": \"OFFICE_HEAD\"\n  },\n  \"_count\": {\n    \"goals\": 1\n  }\n}"
+    },
+    {
+      "category": "policy-check",
+      "module": "Plans",
+      "name": "Policy check: block updates after submission",
+      "method": "PATCH",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e",
+      "expectedStatus": "403",
+      "actualStatus": 403,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"statusCode\": 403,\n  \"timestamp\": \"2026-05-21T08:30:28.697Z\",\n  \"path\": \"/api/v1/plans/cmpf8di7g0001y8v8edk1hr5e\",\n  \"message\": \"Only draft plans can be edited or deleted by the owning office.\"\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Plans",
+      "name": "List pending approvals for the director",
+      "method": "GET",
+      "path": "/plans/pending-approvals?planningYear=2030&take=10&skip=0",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"data\": [\n    {\n      \"id\": \"cmpf8di7g0001y8v8edk1hr5e\",\n      \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n      \"planningYear\": 2030,\n      \"campus\": \"Main Campus primary\",\n      \"programProjectActivityKRA\": \"KRA primary 202605210830265585\",\n      \"strategicAlignment\": \"Strategic Alignment primary 202605210830265585\",\n      \"breakthroughGoals\": \"Breakthrough Goal primary 202605210830265585\",\n      \"strategicObjectives\": \"Strategic Objective primary 202605210830265585\",\n      \"datePrepared\": \"2030-01-15T00:00:00.000Z\",\n      \"monitoringFrequency\": \"Monthly\",\n      \"reportingOffice\": \"RBAP Audit Reporting Office\",\n      \"status\": \"SUBMITTED\",\n      \"submittedAt\": \"2026-05-21T08:30:28.681Z\",\n      \"approvedAt\": null,\n      \"createdAt\": \"2026-05-21T08:30:28.204Z\",\n      \"updatedAt\": \"2026-05-21T08:30:28.684Z\",\n      \"office\": {\n        \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n        \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n        \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\"\n      },\n      \"createdBy\": {\n        \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n        \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n        \"name\": \"API Audit office-head 202605210830265585\",\n    ..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Plans",
+      "name": "Approve the submitted plan as director",
+      "method": "PATCH",
+      "path": "/plans/cmpf8di7g0001y8v8edk1hr5e/approve",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"id\": \"cmpf8di7g0001y8v8edk1hr5e\",\n  \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n  \"planningYear\": 2030,\n  \"campus\": \"Main Campus primary\",\n  \"programProjectActivityKRA\": \"KRA primary 202605210830265585\",\n  \"strategicAlignment\": \"Strategic Alignment primary 202605210830265585\",\n  \"breakthroughGoals\": \"Breakthrough Goal primary 202605210830265585\",\n  \"strategicObjectives\": \"Strategic Objective primary 202605210830265585\",\n  \"datePrepared\": \"2030-01-15T00:00:00.000Z\",\n  \"monitoringFrequency\": \"Monthly\",\n  \"reportingOffice\": \"RBAP Audit Reporting Office\",\n  \"status\": \"APPROVED\",\n  \"submittedAt\": \"2026-05-21T08:30:28.681Z\",\n  \"approvedAt\": \"2026-05-21T08:30:28.719Z\",\n  \"createdAt\": \"2026-05-21T08:30:28.204Z\",\n  \"updatedAt\": \"2026-05-21T08:30:28.720Z\",\n  \"office\": {\n    \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n    \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n    \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\"\n  },\n  \"createdBy\": {\n    \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n    \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n    \"name\": \"API Audit office-head 202605210830265585\",\n    \"role\": \"OFFICE_HEAD\"\n  },\n  \"_count\": {\n    \"goals\": 1\n  }\n}"
+    },
+    {
+      "category": "happy-path",
+      "module": "Plans",
+      "name": "List visible plans for the director",
+      "method": "GET",
+      "path": "/plans?officeId=cmpf8dhf9000apgv81bj9cbpo&planningYear=2030&take=10&skip=0",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"data\": [\n    {\n      \"id\": \"cmpf8di7g0001y8v8edk1hr5e\",\n      \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n      \"planningYear\": 2030,\n      \"campus\": \"Main Campus primary\",\n      \"programProjectActivityKRA\": \"KRA primary 202605210830265585\",\n      \"strategicAlignment\": \"Strategic Alignment primary 202605210830265585\",\n      \"breakthroughGoals\": \"Breakthrough Goal primary 202605210830265585\",\n      \"strategicObjectives\": \"Strategic Objective primary 202605210830265585\",\n      \"datePrepared\": \"2030-01-15T00:00:00.000Z\",\n      \"monitoringFrequency\": \"Monthly\",\n      \"reportingOffice\": \"RBAP Audit Reporting Office\",\n      \"status\": \"APPROVED\",\n      \"submittedAt\": \"2026-05-21T08:30:28.681Z\",\n      \"approvedAt\": \"2026-05-21T08:30:28.719Z\",\n      \"createdAt\": \"2026-05-21T08:30:28.204Z\",\n      \"updatedAt\": \"2026-05-21T08:30:28.720Z\",\n      \"office\": {\n        \"id\": \"cmpf8dhf9000apgv81bj9cbpo\",\n        \"name\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n        \"parentId\": \"cmpf8dhf70009pgv8xne2sw1m\"\n      },\n      \"createdBy\": {\n        \"id\": \"cmpf8dhdp0003pgv8dpqnjo8t\",\n        \"email\": \"api.audit.202605210830265585.office-head@chmsu.edu.ph\",\n        \"name\": \"API Audit office-head 2026..."
+    },
+    {
+      "category": "happy-path",
+      "module": "Plans",
+      "name": "Get summary after approval",
+      "method": "GET",
+      "path": "/plans/summary?planningYear=2030",
+      "expectedStatus": "200",
+      "actualStatus": 200,
+      "outcome": "passed",
+      "responsePreview": "{\n  \"filters\": {\n    \"officeId\": null,\n    \"planningYear\": 2030\n  },\n  \"overview\": {\n    \"totalPlans\": 1,\n    \"draftPlans\": 0,\n    \"submittedPlans\": 0,\n    \"approvedPlans\": 1,\n    \"pendingApprovalCount\": 0\n  },\n  \"byOffice\": [\n    {\n      \"officeId\": \"cmpf8dhf9000apgv81bj9cbpo\",\n      \"officeName\": \"API AUDIT OFFICE HEAD 202605210830265585\",\n      \"totalPlans\": 1,\n      \"draftPlans\": 0,\n      \"submittedPlans\": 0,\n      \"approvedPlans\": 1\n    }\n  ],\n  \"byYear\": [\n    {\n      \"planningYear\": 2030,\n      \"totalPlans\": 1,\n      \"draftPlans\": 0,\n      \"submittedPlans\": 0,\n      \"approvedPlans\": 1\n    }\n  ]\n}"
+    }
+  ]
+}

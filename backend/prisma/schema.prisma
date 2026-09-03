@@ -1,0 +1,340 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                  String              @id @default(cuid())
+  email               String              @unique
+  name                String
+  avatar              String?
+  googleId            String              @unique
+  passwordHash        String?
+  role                Role                @default(OFFICE_HEAD)
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
+  status              UserStatus          @default(ACTIVE)
+  officeId            String?
+  supervisorId        String?
+  office              Office?             @relation("OfficeMember", fields: [officeId], references: [id])
+  supervisor          User?               @relation("UserSupervision", fields: [supervisorId], references: [id], onDelete: SetNull)
+  supervisees         User[]              @relation("UserSupervision")
+  headOfOffice        Office?             @relation("OfficeHead")
+  createdPlans        Plan[]              @relation("UserCreatedPlans")
+  authoredPlanRemarks PlanRemark[]        @relation("UserPlanRemarks")
+  createdGoals        Goal[]              @relation("UserCreatedGoals")
+  createdObjectives   Objective[]         @relation("UserCreatedObjectives")
+  notifications       Notification[]      @relation("UserNotifications")
+  activityLogs        ActivityLog[]       @relation("UserActivityLogs")
+  authoredRemarks     Remark[]            @relation("UserRemarks")
+  createdQoaps        Qoap[]              @relation("UserCreatedQoaps")
+  memberships         AccountMembership[]
+
+  @@index([officeId, status])
+  @@index([supervisorId, status])
+}
+
+enum Workspace {
+  RBAP
+  QM
+}
+
+model AccountMembership {
+  id        String     @id @default(cuid())
+  userId    String
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workspace Workspace
+  role      Role
+  officeId  String?
+  office    Office?    @relation("MembershipOffice", fields: [officeId], references: [id])
+  status    UserStatus @default(ACTIVE)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@unique([userId, workspace])
+  @@index([workspace, status])
+  @@index([officeId, status])
+  @@index([userId, status])
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum Role {
+  ADMIN
+  OFFICE_HEAD
+  DIRECTORS
+  VICE_PRESIDENTS
+  PRESIDENTS
+}
+
+model Office {
+  id          String              @id @default(cuid())
+  name        String              @unique
+  parentId    String?
+  parent      Office?             @relation("OfficeTree", fields: [parentId], references: [id])
+  children    Office[]            @relation("OfficeTree")
+  headId      String?             @unique
+  head        User?               @relation("OfficeHead", fields: [headId], references: [id])
+  members     User[]              @relation("OfficeMember")
+  memberships AccountMembership[] @relation("MembershipOffice")
+  createdAt   DateTime            @default(now())
+  status      OfficeStatus        @default(ACTIVE)
+  plans       Plan[]              @relation("OfficePlans")
+  goals       Goal[]              @relation("OfficeGoals")
+  qoaps       Qoap[]              @relation("OfficeQoaps")
+
+  @@index([parentId, status])
+}
+
+enum OfficeStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum PlanStatus {
+  DRAFT
+  SUBMITTED
+  APPROVED
+}
+
+enum GoalStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+}
+
+model Plan {
+  id                        String          @id @default(cuid())
+  officeId                  String
+  office                    Office          @relation("OfficePlans", fields: [officeId], references: [id])
+  createdById               String
+  createdBy                 User            @relation("UserCreatedPlans", fields: [createdById], references: [id])
+  planningYear              Int
+  campus                    String
+  programProjectActivityKRA String
+  strategicAlignment        String
+  breakthroughGoals         String
+  strategicObjectives       String
+  datePrepared              DateTime?
+  monitoringFrequency       String          @default("Quarterly")
+  reportingOffice           String?
+  status                    PlanStatus      @default(DRAFT)
+  submittedAt               DateTime?
+  approvedAt                DateTime?
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+  goals                     Goal[]          @relation("PlanGoals")
+  planRemarks               PlanRemark[]    @relation("PlanRemarks")
+  monitoring                PlanMonitoring?
+
+  @@unique([officeId, planningYear])
+  @@index([officeId, status])
+  @@index([createdById])
+}
+
+model PlanRemark {
+  id        String   @id @default(cuid())
+  planId    String
+  plan      Plan     @relation("PlanRemarks", fields: [planId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User     @relation("UserPlanRemarks", fields: [authorId], references: [id])
+  content   String
+  createdAt DateTime @default(now())
+
+  @@index([planId, createdAt])
+  @@index([authorId])
+}
+
+model Goal {
+  id                      String      @id @default(cuid())
+  planId                  String
+  plan                    Plan        @relation("PlanGoals", fields: [planId], references: [id], onDelete: Cascade)
+  officeId                String
+  office                  Office      @relation("OfficeGoals", fields: [officeId], references: [id])
+  createdById             String
+  createdBy               User        @relation("UserCreatedGoals", fields: [createdById], references: [id])
+  resultLevel             String
+  targetResult            String
+  keyActions              String
+  keyRisk                 String
+  mitigationMeasures      String
+  keyPerformanceIndicator String
+  target                  String
+  responsibleOfficePerson String
+  timeline                String
+  fundSource              String?
+  budgetRequirements      Decimal     @default(0) @db.Decimal(15, 2)
+  budgetAllocation        Decimal     @default(0) @db.Decimal(15, 2)
+  budgetDeficit           Decimal     @default(0) @db.Decimal(15, 2)
+  meansOfVerification     String
+  code                    String?
+  displayOrder            Int         @default(0)
+  status                  GoalStatus  @default(NOT_STARTED)
+  createdAt               DateTime    @default(now())
+  updatedAt               DateTime    @updatedAt
+  objectives              Objective[] @relation("GoalObjectives")
+  remarks                 Remark[]    @relation("GoalRemarks")
+  qoap                    Qoap?       @relation("GoalQoap")
+
+  @@index([planId])
+  @@index([officeId, status])
+  @@index([createdById])
+}
+
+model Remark {
+  id        String   @id @default(cuid())
+  goalId    String
+  goal      Goal     @relation("GoalRemarks", fields: [goalId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User     @relation("UserRemarks", fields: [authorId], references: [id])
+  content   String
+  createdAt DateTime @default(now())
+
+  @@index([goalId, createdAt])
+  @@index([authorId])
+}
+
+model Objective {
+  id                      String     @id @default(cuid())
+  goalId                  String
+  goal                    Goal       @relation("GoalObjectives", fields: [goalId], references: [id], onDelete: Cascade)
+  createdById             String
+  createdBy               User       @relation("UserCreatedObjectives", fields: [createdById], references: [id])
+  resultLevel             String
+  targetResult            String
+  keyActions              String
+  keyRisk                 String
+  mitigationMeasures      String
+  keyPerformanceIndicator String
+  target                  String
+  responsibleOfficePerson String
+  timeline                String
+  fundSource              String?
+  budgetRequirements      Decimal    @default(0) @db.Decimal(15, 2)
+  budgetAllocation        Decimal    @default(0) @db.Decimal(15, 2)
+  budgetDeficit           Decimal    @default(0) @db.Decimal(15, 2)
+  meansOfVerification     String
+  code                    String?
+  displayOrder            Int        @default(0)
+  status                  GoalStatus @default(NOT_STARTED)
+  createdAt               DateTime   @default(now())
+  updatedAt               DateTime   @updatedAt
+
+  @@index([goalId, status])
+  @@index([createdById])
+}
+
+model PlanMonitoring {
+  id              String    @id @default(cuid())
+  planId          String    @unique
+  plan            Plan      @relation(fields: [planId], references: [id], onDelete: Cascade)
+  frequency       String    @default("Quarterly")
+  reportingOffice String?
+  preparedBy      String?
+  reviewedBy      String?
+  approvedBy      String?
+  preparedAt      DateTime?
+  reviewedAt      DateTime?
+  approvedAt      DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+enum NotificationType {
+  INFO
+  WARNING
+  SUCCESS
+  ERROR
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  user      User             @relation("UserNotifications", fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  message   String
+  type      NotificationType @default(INFO)
+  read      Boolean          @default(false)
+  link      String?
+  createdAt DateTime         @default(now())
+
+  @@index([userId, read])
+}
+
+model ActivityLog {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation("UserActivityLogs", fields: [userId], references: [id], onDelete: Cascade)
+  action    String
+  entity    String
+  entityId  String
+  details   Json?
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([entity, entityId])
+  @@index([createdAt])
+}
+
+enum QomMonitoringFrequency {
+  MONTHLY
+  QUARTERLY
+  BIANNUAL
+  ANNUAL
+}
+
+model Qoap {
+  id          String @id @default(cuid())
+  goalId      String @unique
+  goal        Goal   @relation("GoalQoap", fields: [goalId], references: [id], onDelete: Cascade)
+  officeId    String
+  office      Office @relation("OfficeQoaps", fields: [officeId], references: [id])
+  createdById String
+  createdBy   User   @relation("UserCreatedQoaps", fields: [createdById], references: [id])
+
+  // QM-specific fields only; RBAP values remain on Goal and Plan.
+  functionalObjective String
+  indicators          String
+  indicatorFormula    String
+  resources           String
+  monitoringFrequency QomMonitoringFrequency
+  intendedOutcomes    String
+
+  qoms      Qom[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([officeId])
+  @@index([createdById])
+}
+
+model Qom {
+  id                     String    @id @default(cuid())
+  qoapId                 String
+  qoap                   Qoap      @relation(fields: [qoapId], references: [id], onDelete: Cascade)
+  monitoringNo           Int
+  recencyDate            DateTime
+  previousMonitoringDate DateTime?
+
+  // JSON object keyed by month, e.g. { "jan": "-", "feb": "1" }.
+  performance       Json
+  overallDataResult String?
+  movDataSource     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([qoapId, monitoringNo])
+  @@index([qoapId, recencyDate])
+}

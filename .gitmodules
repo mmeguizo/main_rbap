@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/mmeguizo/rbap-backend.git
+[submodule "shadcn/vite-monorepo"]
+	path = shadcn/vite-monorepo
+	url = https://github.com/mmeguizo/rbap-frontend.git

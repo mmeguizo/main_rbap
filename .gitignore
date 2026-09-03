@@ -1,0 +1,31 @@
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+coverage/
+.turbo/
+*.tsbuildinfo
+test-results/
+vite-err.txt
+vite-out.txt
+
+# Local tooling and temporary analysis files
+.mimocode/
+_dream_*.py
+runngroktxt.txt
+ngrok.exe
+
+# Local exports and database dumps
+*.xlsx
+*.xls
+*.sql
+~$*
+
+# Local media/export artifacts
+4k_back.webp
+urban_4k.jpg

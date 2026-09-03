@@ -1,0 +1,29 @@
+name: Auto Merge to Main
+
+on:
+  push:
+    branches-ignore:
+      - main # This prevents an infinite loop by ignoring pushes directly to main
+
+permissions:
+  contents: write # Grants the workflow permission to push code back to the repository
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches all branches so we can access 'main'
+
+      - name: Merge branch into main
+        run: |
+          # Set up the bot user for the commit
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Switch to main, merge the pushed branch, and push the changes
+          git checkout main
+          git merge origin/${{ github.ref_name }}
+          git push origin main
