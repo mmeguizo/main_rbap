@@ -22,63 +22,63 @@ export class CreateGoalDto {
 
   @Type(() => String)
   @IsString()
-  @IsNotEmpty()
-  @ApiProperty({
+  @IsOptional()
+  @ApiPropertyOptional({
     example:
       'Enhanced ICT infrastructure that supports efficient service and quality teaching-learning activities',
   })
-  targetResult!: string;
+  targetResult?: string;
 
   @Type(() => String)
   @IsString()
-  @IsNotEmpty()
-  @ApiProperty({
+  @IsOptional()
+  @ApiPropertyOptional({
     example: 'Implement ICT infrastructure projects aligned to ISSP.',
   })
-  keyActions!: string;
+  keyActions?: string;
 
   @Type(() => String)
   @IsString()
-  @IsNotEmpty()
-  @ApiProperty({
+  @IsOptional()
+  @ApiPropertyOptional({
     example:
       'Limited budget to allocate for procuring ICT infrastructure projects',
   })
-  keyRisk!: string;
+  keyRisk?: string;
 
   @Type(() => String)
   @IsString()
-  @IsNotEmpty()
-  @ApiProperty({
+  @IsOptional()
+  @ApiPropertyOptional({
     example: 'Seek external funding from other government agencies',
   })
-  mitigationMeasures!: string;
+  mitigationMeasures?: string;
 
   @Type(() => String)
   @IsString()
-  @IsNotEmpty()
-  @ApiProperty({
+  @IsOptional()
+  @ApiPropertyOptional({
     example: 'Number of ICT infrastructure projects implemented',
   })
-  keyPerformanceIndicator!: string;
+  keyPerformanceIndicator?: string;
 
   @Type(() => String)
   @IsString()
-  @IsNotEmpty()
-  @ApiProperty({ example: '10 ICT infrastructure projects' })
-  target!: string;
+  @IsOptional()
+  @ApiPropertyOptional({ example: '10 ICT infrastructure projects' })
+  target?: string;
 
   @Type(() => String)
   @IsString()
-  @IsNotEmpty()
-  @ApiProperty({ example: 'ICT-ITS, ICT-MIS' })
-  responsibleOfficePerson!: string;
+  @IsOptional()
+  @ApiPropertyOptional({ example: 'ICT-ITS, ICT-MIS' })
+  responsibleOfficePerson?: string;
 
   @Type(() => String)
   @IsString()
-  @IsNotEmpty()
-  @ApiProperty({ example: '4th qtr 2026' })
-  timeline!: string;
+  @IsOptional()
+  @ApiPropertyOptional({ example: '4th qtr 2026' })
+  timeline?: string;
 
   @Type(() => String)
   @IsString()
@@ -106,9 +106,9 @@ export class CreateGoalDto {
 
   @Type(() => String)
   @IsString()
-  @IsNotEmpty()
-  @ApiProperty({
+  @IsOptional()
+  @ApiPropertyOptional({
     example: 'Purchase Request/ Purchase Order/ Completion Report',
   })
-  meansOfVerification!: string;
+  meansOfVerification?: string;
 }

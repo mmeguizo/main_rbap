@@ -40,6 +40,7 @@ import { PlanDetailModal } from "@/components/plan-detail-modal"
 import { ImportPlansDialog } from "@/components/import-plans-dialog"
 import { EmptyState } from "@/components/empty-state"
 import { ConfirmDialog } from "@/components/confirm-dialog"
+import { Checkbox } from "@/components/checkbox"
 import {
   Search,
   RefreshCw,
@@ -50,7 +51,6 @@ import {
   Send,
   CheckCircle,
   Building,
-  FileDown,
   Download,
   Upload,
 } from "lucide-react"
@@ -81,6 +81,7 @@ export default function MyPlansPage() {
   const [selectedPlanId, setSelectedPlanId] = useState<string | undefined>(
     undefined
   )
+  const [selectedPlanIds, setSelectedPlanIds] = useState<Set<string>>(new Set())
   const [modalOpen, setModalOpen] = useState(false)
   const [confirmDialog, setConfirmDialog] = useState<{
     title: string
@@ -157,10 +158,6 @@ export default function MyPlansPage() {
     setSelectedPlanId(id)
     setModalOpen(true)
   }
-  const openCreateModal = () => {
-    setSelectedPlanId(undefined)
-    setModalOpen(true)
-  }
   const submitPlan = async (id: string) => {
     try {
       await plansApi.submit(id)
@@ -186,6 +183,56 @@ export default function MyPlansPage() {
     }
   }
 
+  const visiblePlanIds = paginated.map((p) => p.id)
+  const allVisibleSelected = visiblePlanIds.length > 0 && visiblePlanIds.every((id) => selectedPlanIds.has(id))
+  const someVisibleSelected = visiblePlanIds.some((id) => selectedPlanIds.has(id))
+
+  const handleSelectAll = (checked: boolean) => {
+    setSelectedPlanIds((prev) => {
+      const next = new Set(prev)
+      if (checked) {
+        visiblePlanIds.forEach((id) => next.add(id))
+      } else {
+        visiblePlanIds.forEach((id) => next.delete(id))
+      }
+      return next
+    })
+  }
+
+  const handleSelectOne = (id: string, checked: boolean) => {
+    setSelectedPlanIds((prev) => {
+      const next = new Set(prev)
+      if (checked) {
+        next.add(id)
+      } else {
+        next.delete(id)
+      }
+      return next
+    })
+  }
+
+  const exportAsExcel = async (planIdsToExport?: string[]) => {
+    try {
+      const ids = planIdsToExport && planIdsToExport.length > 0 ? planIdsToExport.join(",") : undefined
+      const blob = await plansApi.exportExcel({
+        search: search || undefined,
+        status: statusFilter !== "all" ? (statusFilter as "DRAFT" | "SUBMITTED" | "APPROVED") : undefined,
+        planIds: ids,
+      })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement("a")
+      a.href = url
+      a.download = ids && planIdsToExport?.length === 1
+        ? `rbap-plan-${ids}.xlsx`
+        : "rbap-my-plans-export.xlsx"
+      a.click()
+      URL.revokeObjectURL(url)
+      toast.success("Excel exported successfully")
+    } catch (error: unknown) {
+      toast.error(getApiMessage(error, "Failed to export Excel"))
+    }
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -198,34 +245,36 @@ export default function MyPlansPage() {
           </p>
         </div>
         <div className="flex gap-2">
-          <Button onClick={openCreateModal}>
+          <Button onClick={() => navigate("/plans/new/edit")} className="bg-emerald-700 hover:bg-emerald-800 text-white font-medium">
             <FileText className="size-4" />
-            <span className="ml-1.5 hidden sm:inline">New Plan</span>
+            <span className="ml-1.5">New Plan</span>
           </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            className="gap-1"
-            onClick={async () => {
-              try {
-                const blob = await plansApi.exportExcel({
-                  search: search || undefined,
-                  status: statusFilter !== "all" ? (statusFilter as "DRAFT" | "SUBMITTED" | "APPROVED") : undefined,
-                })
-                const url = URL.createObjectURL(blob)
-                const a = document.createElement("a")
-                a.href = url
-                a.download = "rbap-my-plans-export.xlsx"
-                a.click()
-                URL.revokeObjectURL(url)
-              } catch (error: unknown) {
-                toast.error(getApiMessage(error, "Failed to export Excel"))
-              }
-            }}
-          >
-            <Download className="size-4" />
-            <span className="ml-1.5 hidden sm:inline">Export</span>
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-1 font-medium"
+              >
+                <Download className="size-4" />
+                <span className="ml-1.5 hidden sm:inline">
+                  {selectedPlanIds.size > 0 ? `Export (${selectedPlanIds.size} Selected)` : "Export Excel"}
+                </span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56">
+              {selectedPlanIds.size > 0 && (
+                <DropdownMenuItem onClick={() => exportAsExcel(Array.from(selectedPlanIds))}>
+                  <Download className="size-4 text-emerald-600" />
+                  Download Selected ({selectedPlanIds.size})
+                </DropdownMenuItem>
+              )}
+              <DropdownMenuItem onClick={() => exportAsExcel()}>
+                <Download className="size-4" />
+                Download All Filtered ({total})
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Button
             variant="outline"
             size="sm"
@@ -269,6 +318,33 @@ export default function MyPlansPage() {
         </Select>
       </div>
 
+      {selectedPlanIds.size > 0 && (
+        <div className="flex items-center justify-between rounded-lg border border-emerald-200 bg-emerald-50/70 px-4 py-2.5 text-sm text-emerald-900">
+          <div className="flex items-center gap-2">
+            <span className="font-semibold">{selectedPlanIds.size}</span>
+            <span>plan{selectedPlanIds.size > 1 ? "s" : ""} selected</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button
+              size="sm"
+              className="bg-emerald-700 hover:bg-emerald-800 text-white gap-1.5 h-8 text-xs font-medium"
+              onClick={() => exportAsExcel(Array.from(selectedPlanIds))}
+            >
+              <Download className="size-3.5" />
+              Download Selected as Excel
+            </Button>
+            <Button
+              size="sm"
+              variant="ghost"
+              className="h-8 text-xs text-slate-600 hover:text-slate-900"
+              onClick={() => setSelectedPlanIds(new Set())}
+            >
+              Clear selection
+            </Button>
+          </div>
+        </div>
+      )}
+
       <div className="rounded-xl border bg-card">
         {loading ? (
           <div className="space-y-3 p-4">
@@ -304,7 +380,7 @@ export default function MyPlansPage() {
                   Clear search
                 </Button>
               ) : (
-                <Button size="sm" onClick={openCreateModal}>
+                <Button size="sm" onClick={() => navigate("/plans/new/edit")}>
                   Create Plan
                 </Button>
               )
@@ -314,6 +390,14 @@ export default function MyPlansPage() {
           <Table>
             <TableHeader>
               <TableRow>
+                <TableHead className="w-10">
+                  <Checkbox
+                    checked={allVisibleSelected}
+                    indeterminate={!allVisibleSelected && someVisibleSelected}
+                    onCheckedChange={(checked) => handleSelectAll(!!checked)}
+                    aria-label="Select all plans on page"
+                  />
+                </TableHead>
                 <TableHead>Campus</TableHead>
                 <TableHead>Year</TableHead>
                 <TableHead>KRA</TableHead>
@@ -324,7 +408,14 @@ export default function MyPlansPage() {
             </TableHeader>
             <TableBody>
               {paginated.map((plan) => (
-                <TableRow key={plan.id}>
+                <TableRow key={plan.id} data-state={selectedPlanIds.has(plan.id) ? "selected" : undefined}>
+                  <TableCell>
+                    <Checkbox
+                      checked={selectedPlanIds.has(plan.id)}
+                      onCheckedChange={(checked) => handleSelectOne(plan.id, !!checked)}
+                      aria-label={`Select plan for ${plan.campus}`}
+                    />
+                  </TableCell>
                   <TableCell>
                     <p className="font-medium">{plan.campus}</p>
                   </TableCell>
@@ -352,11 +443,11 @@ export default function MyPlansPage() {
                           <MoreHorizontal className="size-4" />
                         </Button>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end" className="w-44">
+                      <DropdownMenuContent align="end" className="w-48">
                         <DropdownMenuItem
-                          onClick={() => navigate(`/plans/${plan.id}/view`)}
+                          onClick={() => navigate(`/plans/${plan.id}/edit`)}
                         >
-                          <FileText className="size-4" /> Open workspace
+                          <FileText className="size-4" /> Spreadsheet Editor
                         </DropdownMenuItem>
                         <DropdownMenuItem
                           onClick={() => openPlanModal(plan.id)}
@@ -367,19 +458,20 @@ export default function MyPlansPage() {
                           <DropdownMenuItem
                             onClick={async () => {
                               try {
-                                const blob = await plansApi.exportPdf(plan.id)
+                                const blob = await plansApi.exportDocument(plan.id)
                                 const url = URL.createObjectURL(blob)
                                 const a = document.createElement("a")
                                 a.href = url
-                                a.download = `plan-${plan.id}.pdf`
+                                a.download = `rbap-plan-${plan.planningYear}-${plan.campus.replace(/\s+/g, '_')}.xlsx`
                                 a.click()
                                 URL.revokeObjectURL(url)
+                                toast.success("Excel exported successfully")
                               } catch (error: unknown) {
-                                toast.error(getApiMessage(error, "Failed to export PDF"))
+                                toast.error(getApiMessage(error, "Failed to export Excel"))
                               }
                             }}
                           >
-                            <FileDown className="size-4" /> Export PDF
+                            <Download className="size-4" /> Export Excel
                           </DropdownMenuItem>
                         )}
                         {plan.status === "DRAFT" && (

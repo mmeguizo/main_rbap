@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from "react"
+import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
@@ -46,7 +47,7 @@ import {
   MoreHorizontal,
   Eye,
   Trash2,
-  FileDown,
+  Download,
 } from "lucide-react"
 import { ConfirmDialog } from "@/components/confirm-dialog"
 import { useAuth } from "@/contexts/useAuth"
@@ -85,6 +86,7 @@ export function PlanDetailModal({
   onUpdated,
 }: Props) {
   const { user } = useAuth()
+  const navigate = useNavigate()
   const [plan, setPlan] = useState<Plan | null>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState<string | null>(null)
@@ -402,23 +404,24 @@ export function PlanDetailModal({
               <Button
                 variant="outline"
                 size="sm"
-                className="gap-1"
+                className="gap-1 text-slate-700"
                 onClick={async () => {
                   try {
-                    const blob = await plansApi.exportPdf(plan.id)
+                    const blob = await plansApi.exportDocument(plan.id)
                     const url = URL.createObjectURL(blob)
                     const a = document.createElement("a")
                     a.href = url
-                    a.download = `plan-${plan.id}.pdf`
+                    a.download = `rbap-plan-${plan.planningYear}-${plan.office.name.replace(/\s+/g, '_')}.xlsx`
                     a.click()
                     URL.revokeObjectURL(url)
+                    toast.success("Excel exported successfully")
                   } catch (error: unknown) {
-                    toast.error(getApiMessage(error, "Failed to export PDF"))
+                    toast.error(getApiMessage(error, "Failed to export Excel"))
                   }
                 }}
               >
-                <FileDown className="size-4" />
-                Export PDF
+                <Download className="size-4" />
+                Export Excel
               </Button>
             )}
           </DialogTitle>
@@ -543,11 +546,25 @@ export function PlanDetailModal({
                   {plan.id}
                 </p>
               </div>
-              <Badge variant={STATUS_COLORS[plan.status]}>
-                {plan.status === "SUBMITTED"
-                  ? "Submitted"
-                  : plan.status.charAt(0) + plan.status.slice(1).toLowerCase()}
-              </Badge>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    onOpenChange(false)
+                    navigate(`/plans/${plan.id}/edit`)
+                  }}
+                  className="gap-1.5 border-emerald-600 text-emerald-800 bg-emerald-50 hover:bg-emerald-100 font-semibold"
+                >
+                  <FileText className="size-4" />
+                  <span>Open Excel View</span>
+                </Button>
+                <Badge variant={STATUS_COLORS[plan.status]}>
+                  {plan.status === "SUBMITTED"
+                    ? "Submitted"
+                    : plan.status.charAt(0) + plan.status.slice(1).toLowerCase()}
+                </Badge>
+              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">

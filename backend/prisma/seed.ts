@@ -17,99 +17,88 @@ const officeTree: OfficeSeedNode = {
   name: 'CHMSU',
   children: [
     {
-      name: 'Office of the University President',
+      name: 'Office of the President',
       children: [
-        { name: 'Gender and Development' },
-        { name: 'Planning, Monitoring and Evaluation' },
-        { name: 'Quality Management' },
-        { name: 'Legal Counsel' },
-        { name: 'University Secretary' },
-        { name: 'Executive Assistant' },
-        { name: 'Management Audit' },
-      ],
-    },
-    {
-      name: 'Office of the Vice President for Academic Affairs',
-      children: [
-        { name: 'College of Arts and Sciences' },
-        { name: 'College of Business Management and Accountancy' },
-        { name: 'College of Computer Studies' },
-        { name: 'College of Criminal Justice' },
-        { name: 'College of Education' },
-        { name: 'College of Engineering' },
-        { name: 'College of Fisheries' },
-        { name: 'College of Industrial Technology' },
-        { name: 'Advanced Education Program' },
-        { name: 'Curriculum and Instructional Materials Development' },
-        { name: 'Admission and Registrarship' },
-        { name: 'Guidance Services' },
-        { name: 'Library and Information Services' },
-        { name: 'National Service Training Program' },
-        { name: 'Student Affairs and Services' },
-        { name: 'Scholarships' },
-        { name: 'Internationalization and External Relations' },
-        { name: 'Alumni Relations' },
+        { name: 'Gender and Development (GAD)' },
+        { name: 'Planning, Monitoring and Evaluation Unit (PME)' },
+        { name: 'Quality Management (QM)' },
+        { name: 'Project Management Unit (PMU)/PPDM' },
+        { name: 'Legal Unit' },
+        { name: 'Information and Communication Technology Unit (ICT)' },
+        { name: 'Internal Audit Unit (IAU)' },
+        { name: 'General Services Unit (GSU)' },
       ],
     },
     {
       name: 'Office of the Vice President for Administration and Finance',
       children: [
-        { name: 'Alijis Campus' },
-        { name: 'Binalbagan Campus' },
-        { name: 'Fortune Town Campus' },
-        { name: 'Business Affairs' },
-        { name: 'Human Resource Development' },
-        { name: 'Information and Communication Technology' },
-        { name: 'Physical Plant Development and Management' },
-        { name: 'Disaster Risk Reduction Management' },
+        { name: 'Campus Director - Binalbagan Campus' },
+        { name: 'Campus Director - Fortune Towne Campus' },
+        { name: 'Campus Director - Alijis Campus' },
+        { name: 'Business Affairs Office (BAO)' },
+        { name: 'Disaster Risk Reduction Management (DRRM)' },
+        { name: 'Financial Management Services Division (FMSD)' },
+        { name: 'Administrative Services Division (ASD)' },
+        { name: 'Cash Unit' },
+        { name: 'Procurement Management Unit (PMU/BAC)' },
         {
-          name: 'Administration Division',
-          children: [
-            { name: 'Human Resource Management' },
-            { name: 'Procurement Management' },
-            { name: 'Records Management' },
-            { name: 'Property and Supply Management' },
-            { name: 'Security' },
-            { name: 'General Services' },
-          ],
+          name: 'Human Resource Management Unit (HRMU) and Human Resource Development Office (HRDO)',
         },
+        { name: 'Records Management Unit (RMU)' },
+        { name: 'Supply and Property Management Unit (SPMU)' },
+      ],
+    },
+    {
+      name: 'Office of the Vice President for Academic Affairs',
+      children: [
+        { name: 'Advanced Education Program (AEP)' },
+        { name: 'Curriculum and Instructional Materials Development (CIMD)' },
+        { name: 'Center for Internationalization and External Relations (CIER)' },
+        { name: 'National Service Training Program (NSTP)' },
+        { name: 'Scholarships Office' },
+        { name: 'College of Criminal Justice (CCJ) - Dean' },
+        { name: 'College of Engineering (COE) - Dean' },
+        { name: 'College of Computer Studies (CCS) - Dean' },
+        { name: 'College of Arts and Sciences (CAS) - Dean' },
         {
-          name: 'Finance Division',
-          children: [
-            { name: 'Accounting' },
-            { name: 'Budget' },
-            { name: 'Cashier' },
-          ],
+          name: 'College of Business, Management, and Accountancy (CBMA) - Dean',
         },
+        { name: 'College of Education (COED) - Dean' },
+        { name: 'College of Industrial Technology (CIT) - Dean' },
+        { name: 'College of Fisheries (COF) - Dean' },
+        { name: 'Alumni Relations' },
+        { name: 'Library and Information Services' },
+        { name: 'Office for Student Affairs and Services (OSAS)' },
+        { name: "Registrar's Office" },
+        { name: 'Office of the Guidance Services (OGS)' },
       ],
     },
     {
       name: 'Office of the Vice President for Research, Extension and Intellectual Property',
       children: [
-        { name: 'Extension and Community Services' },
-        { name: 'Intellectual Property Management' },
-        {
-          name: 'Research and Development Services',
-          children: [
-            { name: 'Research Ethics Review' },
-            { name: 'Scientific Publication' },
-          ],
-        },
+        { name: 'Research and Development Services (RDS)' },
+        { name: 'Extension and Community Services (ECS)' },
+        { name: 'Intellectual Property Management Office (IPMO)' },
       ],
     },
   ],
 };
 
-const QM_OFFICE_NAME = 'Quality Management';
+const QM_OFFICE_NAMES = ['Quality Management (QM)', 'Quality Management'];
 
 // Dev users for the Quality Management office so the QM UI (QOAP/QOM) can be
 // demoed. Password login: qm.director@chmsu.edu.ph or qm.staff@chmsu.edu.ph.
 // Password for both: qm-dev-123
 async function seedQmUsers() {
-  const qmOffice = await prisma.office.findUniqueOrThrow({
-    where: { name: QM_OFFICE_NAME },
+  const qmOffice = await prisma.office.findFirst({
+    where: { name: { in: QM_OFFICE_NAMES } },
     select: { id: true },
   });
+
+  if (!qmOffice) {
+    console.warn('QM office not found; skipping QM user seed');
+    return;
+  }
 
   const passwordHash = await hash('qm-dev-123', 10);
 
@@ -190,6 +179,18 @@ async function main() {
 }
 
 async function syncOfficeNode(node: OfficeSeedNode, parentId: string | null) {
+  if (node.name === 'Office of the President') {
+    const oldPresident = await prisma.office.findUnique({
+      where: { name: 'Office of the University President' },
+    });
+    if (oldPresident) {
+      await prisma.office.update({
+        where: { id: oldPresident.id },
+        data: { name: 'Office of the President' },
+      });
+    }
+  }
+
   const office = await prisma.office.upsert({
     where: { name: node.name },
     update: {

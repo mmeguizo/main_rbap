@@ -258,7 +258,22 @@ export class PlansService {
 
   async create(dto: CreatePlanDto, user: AuthenticatedUser) {
     this.ensureCreatorRole(user);
-    const officeId = this.getRequiredOfficeId(user);
+    let officeId = this.getRequiredOfficeId(user);
+
+    if (dto.officeId || dto.officeName) {
+      const accessibleOfficeIds = await this.officesService.getAccessibleOfficeIds(user);
+      if (dto.officeId && (accessibleOfficeIds.includes(dto.officeId) || user.role === 'ADMIN')) {
+        officeId = dto.officeId;
+      } else if (dto.officeName?.trim()) {
+        const found = await this.prisma.office.findFirst({
+          where: { name: { equals: dto.officeName.trim(), mode: 'insensitive' } },
+          select: { id: true },
+        });
+        if (found && (accessibleOfficeIds.includes(found.id) || user.role === 'ADMIN')) {
+          officeId = found.id;
+        }
+      }
+    }
 
     const existingPlan = await this.prisma.plan.findUnique({
       where: {
@@ -287,7 +302,7 @@ export class PlansService {
         breakthroughGoals: dto.breakthroughGoals,
         strategicObjectives: dto.strategicObjectives,
         datePrepared: dto.datePrepared ? new Date(dto.datePrepared) : undefined,
-        monitoringFrequency: dto.monitoringFrequency ?? 'Quarterly',
+        monitoringFrequency: dto.monitoringFrequency ?? '',
         reportingOffice: dto.reportingOffice,
       },
       select: planSelect,

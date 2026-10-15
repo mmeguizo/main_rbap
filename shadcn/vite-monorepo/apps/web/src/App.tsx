@@ -135,6 +135,26 @@ export function App() {
             }
           />
           <Route
+            path="plans/:id/edit"
+            element={
+              <RoleGuard minRole={ROLE_HIERARCHY.OFFICE_HEAD}>
+                <RbapWorkspaceGuard>
+                  <PlanDocumentPage />
+                </RbapWorkspaceGuard>
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="plans/new/edit"
+            element={
+              <RoleGuard minRole={ROLE_HIERARCHY.OFFICE_HEAD}>
+                <RbapWorkspaceGuard>
+                  <PlanDocumentPage />
+                </RbapWorkspaceGuard>
+              </RoleGuard>
+            }
+          />
+          <Route
             path="goals"
             element={
               <RoleGuard minRole={ROLE_HIERARCHY.DIRECTORS}>

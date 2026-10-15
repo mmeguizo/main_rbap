@@ -468,12 +468,12 @@ export interface OfficeTreeNode {
 }
 
 export const officesApi = {
-  getAll: (take = 100, skip = 0) =>
+  getAll: (take = 100, skip = 0, search?: string) =>
     api
       .get<{
         data: AdminOffice[]
         meta: { total: number }
-      }>("/offices", { params: { take, skip } })
+      }>("/offices", { params: { take, skip, search: search || undefined } })
       .then((r) => r.data),
 
   getAccessible: () =>
@@ -556,6 +556,8 @@ export const plansApi = {
     datePrepared?: string
     monitoringFrequency?: string
     reportingOffice?: string
+    officeId?: string
+    officeName?: string
   }) => api.post<Plan>("/plans", data).then((r) => r.data),
 
   update: (
@@ -614,6 +616,7 @@ export const plansApi = {
     planningYear?: number
     status?: string
     search?: string
+    planIds?: string
   }) =>
     api
       .get("/plans/export/excel", { params, responseType: "blob" })

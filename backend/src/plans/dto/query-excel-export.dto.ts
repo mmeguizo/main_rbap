@@ -31,4 +31,9 @@ export class QueryExcelExportDto {
   @IsString()
   @ApiPropertyOptional({ description: 'Search in KRA or strategic alignment.' })
   search?: string;
+
+  @IsOptional()
+  @IsString()
+  @ApiPropertyOptional({ description: 'Comma-separated list of plan IDs to export.' })
+  planIds?: string;
 }

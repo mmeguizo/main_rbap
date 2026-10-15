@@ -87,4 +87,22 @@ export class CreatePlanDto {
     description: 'Reporting office text shown in the RBAP sheet.',
   })
   reportingOffice?: string;
+
+  @Type(() => String)
+  @IsString()
+  @IsOptional()
+  @ApiPropertyOptional({
+    example: 'cmspq7pe600007cv8s6s0xnsj',
+    description: 'Target office ID for the plan.',
+  })
+  officeId?: string;
+
+  @Type(() => String)
+  @IsString()
+  @IsOptional()
+  @ApiPropertyOptional({
+    example: 'Information Technology Services Unit',
+    description: 'Target office name for the plan.',
+  })
+  officeName?: string;
 }

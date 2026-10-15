@@ -47,12 +47,15 @@ export class OfficesController {
     required: false,
     example: 0,
   })
-  // @ApiBearerAuth()
-  // @UseGuards(JwtAuthGuard, RolesGuard)
+  @ApiQuery({
+    name: 'search',
+    required: false,
+    example: 'ICT',
+  })
   @Roles(Role.DIRECTORS, Role.VICE_PRESIDENTS, Role.PRESIDENTS, Role.ADMIN)
   @Get()
   async findAll(@Query() q: PaginationDto) {
-    return await this.officesService.findAllPaginated(q.take, q.skip);
+    return await this.officesService.findAllPaginated(q.take, q.skip, q.search);
   }
 
   @ApiOperation({

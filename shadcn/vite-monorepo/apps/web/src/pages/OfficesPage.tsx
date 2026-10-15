@@ -55,7 +55,8 @@ export default function OfficesPage() {
 
   useEffect(() => {
     let cancelled = false
-    officesApi.getAll(PAGE_SIZE, (page - 1) * PAGE_SIZE).then((res) => {
+    setLoading(true)
+    officesApi.getAll(PAGE_SIZE, (page - 1) * PAGE_SIZE, search).then((res) => {
       if (!cancelled) {
         setOffices(res.data)
         setTotal(res.meta.total)
@@ -68,11 +69,7 @@ export default function OfficesPage() {
       }
     })
     return () => { cancelled = true }
-  }, [refreshKey, page])
-
-  useEffect(() => {
-    setPage(1)
-  }, [search])
+  }, [refreshKey, page, search])
 
   const maxPage = Math.max(1, Math.ceil(total / PAGE_SIZE))
   const safePage = Math.max(1, Math.min(page, maxPage))
@@ -118,7 +115,10 @@ export default function OfficesPage() {
         <Input
           placeholder="Search offices by name..."
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => {
+            setSearch(e.target.value)
+            setPage(1)
+          }}
           className="pl-9"
         />
       </div>

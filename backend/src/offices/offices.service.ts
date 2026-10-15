@@ -46,13 +46,25 @@ export class OfficesService {
     });
   }
 
-  async findAllPaginated(take = 20, skip = 0) {
+  async findAllPaginated(take = 20, skip = 0, search?: string) {
+    const where = {
+      status: 'ACTIVE' as const,
+      ...(search
+        ? {
+            name: {
+              contains: search.trim(),
+              mode: 'insensitive' as const,
+            },
+          }
+        : {}),
+    };
+
     const [data, total] = await this.prisma.$transaction([
       this.prisma.office.findMany({
         take,
         skip,
-        where: { status: 'ACTIVE' },
-        orderBy: { createdAt: 'desc' },
+        where,
+        orderBy: { name: 'asc' },
         select: {
           id: true,
           name: true,
@@ -79,7 +91,7 @@ export class OfficesService {
         },
       }),
       this.prisma.office.count({
-        where: { status: 'ACTIVE' },
+        where,
       }),
     ]);
     return { data, meta: { total, take, skip, returned: data.length } };
@@ -463,7 +475,7 @@ export class OfficesService {
     return await this.prisma.$transaction(async (tx) => {
       const existingOffice = await tx.office.findUnique({
         where: { id: officeId },
-        select: { headId: true },
+        select: { id: true, headId: true, parentId: true },
       });
       if (!existingOffice) {
         throw new NotFoundException('Office not found');
@@ -475,12 +487,31 @@ export class OfficesService {
         select: officeSelect,
       });
 
+      // Clear head user office assignment
       if (existingOffice.headId) {
         await tx.user.update({
           where: { id: existingOffice.headId },
           data: { officeId: null },
         });
       }
+
+      // Detach all members belonging to this office
+      await tx.user.updateMany({
+        where: { officeId: officeId },
+        data: { officeId: null },
+      });
+
+      // Detach account memberships pointing to this office
+      await tx.accountMembership.updateMany({
+        where: { officeId: officeId },
+        data: { officeId: null },
+      });
+
+      // Re-parent active children under the deleted office's parent
+      await tx.office.updateMany({
+        where: { parentId: officeId, status: 'ACTIVE' },
+        data: { parentId: existingOffice.parentId },
+      });
 
       return office;
     });
